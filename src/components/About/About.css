@@ -1,0 +1,35 @@
+.about__image {
+  width: 464px;
+  height: 464px;
+  border-radius: 50%;
+  background: url(../../assets/photo_2024-04-29_11-33-59.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.about {
+  padding: 80px 0 0 104px;
+  display: flex;
+  max-width: 1440px;
+  gap: 56px;
+}
+.about__title {
+  margin: 131px auto 0;
+  color: black;
+  max-width: 600px;
+  font-family: Roboto Slab;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 46px;
+  text-align: left;
+}
+.about__paragraph {
+  color: black;
+  max-width: 600px;
+  margin: 24px auto 0;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}

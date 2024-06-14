@@ -1,0 +1,19 @@
+.card {
+  width: 400px;
+  height: 576px;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.card__image {
+  border-radius: 15px 15px 0 0;
+}
+
+.card__date {
+}
+.card__heading {
+}
+.card__text {
+}
+.card__footer {
+}
