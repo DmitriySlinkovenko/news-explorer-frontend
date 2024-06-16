@@ -8,7 +8,7 @@
   font-family: Roboto Slab;
   font-size: 60px;
   font-weight: 400;
-  line-height: 64px;
+  line-height: 1.2;
   text-align: left;
   max-width: 608px;
 }
@@ -64,4 +64,30 @@
   position: absolute;
   right: 0px;
   top: 0px;
+}
+.search-form__search-btn:hover {
+  background-color: rgba(52, 126, 255, 1);
+}
+.search-form__search-btn:active {
+  background-color: rgba(42, 101, 204, 1);
+}
+
+@media screen and (max-width: 770px) {
+  .search-form__title {
+    font-size: 36px;
+    max-width: 385px;
+    margin-right: 70px;
+  }
+  .search-form__subtitle {
+    max-width: 452px;
+  }
+  .search-form__input {
+    max-width: 448px;
+  }
+  .search-form__input-label {
+    max-width: 448px;
+  }
+  .search-form__search-btn {
+    max-width: 160px;
+  }
 }

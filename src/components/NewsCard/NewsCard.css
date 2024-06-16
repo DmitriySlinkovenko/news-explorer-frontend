@@ -48,3 +48,23 @@
 .card__bookmark-btn:hover {
   background-image: url(../../assets/bookmark-hover.svg);
 }
+
+@media screen and (max-width: 770px) {
+  .card {
+    width: 224px;
+    height: 420px;
+  }
+  .card__image {
+    width: 224px;
+  }
+  .card__bookmark-btn {
+    top: -172px;
+    right: 8px;
+  }
+  .card__footer {
+    bottom: -10px;
+  }
+  .card__info {
+    padding: 0 16px 16px;
+  }
+}

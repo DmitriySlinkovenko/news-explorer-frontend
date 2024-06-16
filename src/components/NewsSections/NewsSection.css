@@ -29,3 +29,15 @@
   border: none;
   border-radius: 50px;
 }
+
+@media screen and (max-width: 770px) {
+  .card-section {
+    padding: 40px;
+  }
+  .card__containter {
+    gap: 8px;
+  }
+  .card-section__show-more-btn {
+    max-width: 240px;
+  }
+}

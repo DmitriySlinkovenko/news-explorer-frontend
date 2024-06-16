@@ -4,7 +4,7 @@ import NewsCard from "../NewsCard/NewsCard";
 
 export default function SavedNews() {
   return (
-    <div className="card-section">
+    <div className="saved-news-section">
       <div className="card__containter">
         <NewsCard />
         <NewsCard />

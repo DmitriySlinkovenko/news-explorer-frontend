@@ -13,8 +13,9 @@
 
 .header__logo {
   flex-grow: 1;
+  margin: 0;
   cursor: pointer;
-  font-family: Roboto Slab;
+  font-family: "Roboto Slab", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
@@ -27,7 +28,7 @@
   background-color: transparent;
   cursor: pointer;
   margin-right: 42px;
-  font-family: Roboto;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.2;
@@ -41,7 +42,7 @@
   border: 1px solid #fff;
   border-radius: 25px;
   background-color: transparent;
-  font-family: Roboto;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.2;
@@ -55,7 +56,7 @@
   border: 1px solid #fff;
   border-radius: 25px;
   background-color: transparent;
-  font-family: Roboto;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.2;
@@ -66,4 +67,14 @@
   width: 24px;
   height: 24px;
   top: 7px;
+}
+
+@media screen and (max-width: 770px) {
+  .header__container {
+    max-height: 40px;
+    padding: 22px 40px 18px;
+  }
+  .header__sign-in-btn {
+    height: 40px;
+  }
 }
