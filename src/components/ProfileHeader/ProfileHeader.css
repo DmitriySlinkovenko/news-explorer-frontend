@@ -1,17 +1,17 @@
-.header__container {
+.profile__header__container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   max-width: 100%;
   background-color: transparent;
-  color: #fff;
+  color: #000;
   padding: 19px 104px 0;
   height: 80px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(209, 210, 214, 1);
 }
 
-.header__logo {
+.profile__header__logo {
   flex-grow: 1;
   cursor: pointer;
   font-family: Roboto Slab;
@@ -20,10 +20,10 @@
   line-height: 24px;
   text-align: left;
 }
-.header__home-btn {
+.profile__header__home-btn {
   text-decoration: none;
   border: none;
-  color: #fff;
+  color: #000;
   background-color: transparent;
   cursor: pointer;
   margin-right: 42px;
@@ -32,27 +32,14 @@
   font-weight: 500;
   line-height: 1.2;
 }
-.header__sign-in-btn {
-  color: #fff;
-  text-decoration: none;
-  width: 176px;
-  cursor: pointer;
-  height: 48px;
-  border: 1px solid #fff;
-  border-radius: 25px;
-  background-color: transparent;
-  font-family: Roboto;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.2;
-}
-.header__logout-btn {
-  color: #fff;
+
+.profile__header__logout-btn {
+  color: rgba(26, 27, 34, 1);
   text-decoration: none;
   max-width: 176px;
   cursor: pointer;
   height: 48px;
-  border: 1px solid #fff;
+  border: 1px solid #000;
   border-radius: 25px;
   background-color: transparent;
   font-family: Roboto;
@@ -61,7 +48,7 @@
   line-height: 1.2;
   padding: 0 20px 5px;
 }
-.header__logout-icon {
+.profile__header__logout-icon {
   position: relative;
   width: 24px;
   height: 24px;

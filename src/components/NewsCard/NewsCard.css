@@ -10,10 +10,41 @@
 }
 
 .card__date {
+  margin: 20px 0 0;
+}
+.card__info {
+  padding: 0 24px 24px;
+  position: relative;
 }
 .card__heading {
+  margin: 12px 0 0;
 }
 .card__text {
+  margin: 16px 0 0;
+  max-width: 352px;
+  height: 110px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .card__footer {
+  position: absolute;
+  margin: 0 0 24px;
+  bottom: -58px;
+}
+.card__bookmark-btn {
+  background-image: url(../../assets/bookmark.svg);
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  padding: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  top: -280px;
+  right: 24px;
+}
+.card__bookmark-btn:hover {
+  background-image: url(../../assets/bookmark-hover.svg);
 }
