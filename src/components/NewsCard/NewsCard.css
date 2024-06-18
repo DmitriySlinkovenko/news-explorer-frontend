@@ -48,6 +48,35 @@
 .card__bookmark-btn:hover {
   background-image: url(../../assets/bookmark-hover.svg);
 }
+.card__delete-btn {
+  width: 40px;
+  height: 40px;
+  background-image: url(../../assets/trash.svg);
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  position: absolute;
+  padding: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  top: -280px;
+  right: 24px;
+}
+.card__delete-btn:hover {
+  background-image: url(../../assets/trash-hover.svg);
+}
+.card__search-tag {
+  position: absolute;
+  margin: 0;
+  color: black;
+  background-color: white;
+  max-height: 40px;
+  max-width: 125px;
+  border-radius: 10px;
+  padding: 8px 20px;
+  top: -280px;
+  left: 24px;
+}
 
 @media screen and (max-width: 770px) {
   .card {
@@ -67,4 +96,15 @@
   .card__info {
     padding: 0 16px 16px;
   }
+  .card__delete-btn {
+    top: -172px;
+    right: 8px;
+  }
+  .card__search-tag {
+    top: -172px;
+    left: 8px;
+  }
+}
+
+@media screen and (max-width: 620px) {
 }
