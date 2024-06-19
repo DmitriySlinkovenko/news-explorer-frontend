@@ -11,3 +11,9 @@
     padding: 40px;
   }
 }
+
+@media screen and (max-width: 620px) {
+  .card-section {
+    padding: 32px 16px 24px;
+  }
+}

@@ -41,3 +41,21 @@
     max-width: 240px;
   }
 }
+
+@media screen and (max-width: 620px) {
+  .card-section__show-more-btn {
+    max-width: 288px;
+    padding: 0;
+  }
+  .card-section {
+    padding: 32px 16px 24px;
+    align-items: center;
+  }
+  .card-section__heading {
+    margin: 0 0 58px;
+  }
+  .card__containter {
+    gap: 10px;
+    justify-content: center;
+  }
+}
