@@ -1,11 +1,15 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
+import { IsOpenContext } from "../../contexts/IsOpenContext.js";
 
-export default function SignUpModal({ onCloseModal, isOpen, handleLogin }) {
+export default function SignUpModal({ onCloseModal, handleLogin }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { isOpen, clickHandlers } = useContext(IsOpenContext);
+  const { registerModalOpen } = isOpen;
+  const { handleLoginClick } = clickHandlers;
 
   function handleEmailChange(e) {
     setEmail(e.target.value);
@@ -25,13 +29,32 @@ export default function SignUpModal({ onCloseModal, isOpen, handleLogin }) {
     setEmail("");
     setPassword("");
     setName("");
-    setAvatar("");
+  }
+
+  function SubmitButton() {
+    if (password && email && name) {
+      return (
+        <button type="button" className="form__submit-btn">
+          Sign Up
+        </button>
+      );
+    } else {
+      return (
+        <button
+          type="button"
+          className="form__submit-btn form__submit-btn_disabled"
+          disabled
+        >
+          Sign Up
+        </button>
+      );
+    }
   }
 
   return (
     <>
       <ModalWithForm
-        isOpen={false}
+        isOpen={registerModalOpen}
         handleModalClose={onCloseModal}
         handleSubmitForm={handleSubmitForm}
         title={"Sign Up"}
@@ -77,10 +100,12 @@ export default function SignUpModal({ onCloseModal, isOpen, handleLogin }) {
             maxLength={30}
           />
         </label>
-        <button type="submit" className="form__submit-btn">
-          Sign Up
-        </button>
-        <button className="form__redirect-btn">
+        <SubmitButton />
+        <button
+          type="button"
+          className="form__redirect-btn"
+          onClick={handleLoginClick}
+        >
           or <span className="form__redirect-btn_span">Sign in</span>
         </button>
       </ModalWithForm>

@@ -7,6 +7,10 @@
 .footer__heading {
   margin: 0;
   flex-grow: 1;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+  color: rgba(182, 188, 191, 1);
 }
 .footer__home-btn {
   text-decoration: none;
@@ -47,6 +51,12 @@
 .footer__github {
   width: 20px;
   height: 20px;
+}
+
+@media screen and (max-width: 770px) {
+  .footer {
+    padding: 20px 40px;
+  }
 }
 
 @media screen and (max-width: 620px) {

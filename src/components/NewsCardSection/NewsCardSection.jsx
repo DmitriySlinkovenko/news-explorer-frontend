@@ -1,5 +1,5 @@
 import React from "react";
-import "./NewsSection.css";
+import "./NewsCardSection.css";
 import NewsCard from "../NewsCard/NewsCard";
 
 export default function NewsSection() {

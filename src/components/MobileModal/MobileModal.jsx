@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
 import "./MobileModal.css";
 import { IsOpenContext } from "../../contexts/IsOpenContext";
+import { Link } from "react-router-dom";
 
 export default function MobileModal() {
-  const { isOpen, toggleMobileModal } = useContext(IsOpenContext);
+  const { mobileIsOpen, toggleMobileModal, clickHandlers } =
+    useContext(IsOpenContext);
+  const { handleLoginClick } = clickHandlers;
   return (
-    <div className={`mobile ${isOpen ? "mobile_active" : ""}`}>
+    <div className={`mobile ${mobileIsOpen ? "mobile_active" : ""}`}>
       <div className="mobile-header__container">
         <p className="mobile-nav__logo">NewsExplorer</p>
         <button
@@ -14,8 +17,17 @@ export default function MobileModal() {
         ></button>
       </div>
       <div className="mobile__button-container">
-        <button className="mobile-nav__home-btn">Home</button>
-        <button className="mobile-nav__sign-in-btn">Sign In</button>
+        <Link to="/">
+          <button className="mobile-nav__home-btn">Home</button>
+        </Link>
+
+        <button
+          type=" button"
+          className="mobile-nav__sign-in-btn"
+          onClick={handleLoginClick}
+        >
+          Sign In
+        </button>
       </div>
     </div>
   );

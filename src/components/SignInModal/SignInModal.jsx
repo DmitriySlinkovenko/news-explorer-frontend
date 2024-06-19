@@ -1,10 +1,14 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { IsOpenContext } from "../../contexts/IsOpenContext";
 
-export default function SignInModal({ onCloseModal, isOpen, handleLogin }) {
+export default function SignInModal({ onCloseModal, handleLogin }) {
+  const { isOpen, clickHandlers } = useContext(IsOpenContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { loginModalOpen } = isOpen;
+  const { handleRegisterClick } = clickHandlers;
 
   function handleEmailChange(e) {
     setEmail(e.target.value);
@@ -23,10 +27,30 @@ export default function SignInModal({ onCloseModal, isOpen, handleLogin }) {
     setAvatar("");
   }
 
+  function SubmitButton() {
+    if (password && email) {
+      return (
+        <button type="button" className="form__submit-btn">
+          Sign In
+        </button>
+      );
+    } else {
+      return (
+        <button
+          type="button"
+          className="form__submit-btn form__submit-btn_disabled"
+          disabled
+        >
+          Sign In
+        </button>
+      );
+    }
+  }
+
   return (
     <>
       <ModalWithForm
-        isOpen={isOpen}
+        isOpen={loginModalOpen}
         handleModalClose={onCloseModal}
         handleSubmitForm={handleSubmitForm}
         title={"Sign In"}
@@ -57,10 +81,12 @@ export default function SignInModal({ onCloseModal, isOpen, handleLogin }) {
             value={password}
           />
         </label>
-        <button type="submit" className="form__submit-btn">
-          Sign In
-        </button>
-        <button className="form__redirect-btn">
+        <SubmitButton />
+        <button
+          type="button"
+          className="form__redirect-btn"
+          onClick={handleRegisterClick}
+        >
           or <span className="form__redirect-btn_span">Sign up</span>
         </button>
       </ModalWithForm>

@@ -51,10 +51,9 @@
   flex-grow: 1;
   margin: 0;
   cursor: pointer;
-  font-family: "Roboto Slab", sans-serif;
+  font-family: "Roboto Slab", Arial, sans-serif;
   font-size: 20px;
   font-weight: 700;
-  line-height: 1.2;
   text-align: left;
 }
 .mobile-nav__home-btn {
@@ -67,10 +66,8 @@
   cursor: pointer;
   text-align: left;
   margin: 16px 0 0;
-  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 500;
-  line-height: 1.2;
 }
 .mobile-nav__sign-in-btn {
   color: #fff;
@@ -82,9 +79,7 @@
   border: 1px solid #fff;
   border-radius: 25px;
   background-color: transparent;
-  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 500;
-  line-height: 1.2;
   margin-top: 22px;
 }

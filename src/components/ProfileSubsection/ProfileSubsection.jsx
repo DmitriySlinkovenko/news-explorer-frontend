@@ -4,7 +4,7 @@ import "./ProfileSubsection.css";
 export default function ProfileSubsection({
   currentUser = "Dmitriy",
   savedArticles = 5,
-  searchWord = ["Nature", "YellowStone", "Gary", "Open"],
+  searchWords = ["Nature", "YellowStone"],
 }) {
   return (
     <div className="saved-page">
@@ -13,8 +13,8 @@ export default function ProfileSubsection({
         {currentUser}, you have {savedArticles} saved articles
       </h2>
       <p className="saved-page__subtitle">
-        By keywords: {searchWord[0]}, {searchWord[1]} and{" "}
-        {searchWord.length - 2} more
+        By keywords: {searchWords[0]}, {searchWords[1]}
+        {searchWords.length > 2 && ` and ${searchWords.length - 2} more`}
       </p>
     </div>
   );

@@ -4,7 +4,7 @@ import "./About.css";
 export default function About() {
   return (
     <div className="about">
-      <img src="" alt="" className="about__image" />
+      <img alt="Author Picture" className="about__image" />
       <div className="about__text">
         <h2 className="about__title">About the author</h2>
         <p className="about__paragraph">

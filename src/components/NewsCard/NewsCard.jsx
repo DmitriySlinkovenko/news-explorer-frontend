@@ -8,7 +8,7 @@ export default function NewsCard({
 }) {
   return !isProfilePage ? (
     <div className="card">
-      <img src={cardImage} alt="" className="card__image" />
+      <img src={cardImage} alt="Card Description.." className="card__image" />
       <div className="card__info">
         <button className="card__bookmark-btn"></button>
         <p className="card__date">November 4, 2020</p>
@@ -23,7 +23,7 @@ export default function NewsCard({
     </div>
   ) : (
     <div className="card">
-      <img src={cardImage} alt="" className="card__image" />
+      <img src={cardImage} alt="Card Description.." className="card__image" />
       <div className="card__info">
         <button className="card__delete-btn"></button>
         <p className="card__search-tag">{searchTag}</p>

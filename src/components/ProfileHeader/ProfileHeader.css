@@ -1,4 +1,4 @@
-.profile__header__container {
+.profile-header__container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -11,29 +11,29 @@
   border-bottom: 1px solid rgba(209, 210, 214, 1);
 }
 
-.profile__header__logo {
+.profile-header__logo {
   flex-grow: 1;
   cursor: pointer;
-  font-family: Roboto Slab;
+  font-family: "Roboto Slab", Arial, sans-serif;
   font-size: 20px;
   font-weight: 700;
-  line-height: 24px;
+  line-height: 1.2;
   text-align: left;
 }
-.profile__header__home-btn {
+.profile-header__home-btn {
   text-decoration: none;
   border: none;
   color: #000;
   background-color: transparent;
   cursor: pointer;
   margin-right: 42px;
-  font-family: Roboto;
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.2;
 }
 
-.profile__header__logout-btn {
+.profile-header__logout-btn {
   color: rgba(26, 27, 34, 1);
   text-decoration: none;
   max-width: 176px;
@@ -42,15 +42,59 @@
   border: 1px solid #000;
   border-radius: 25px;
   background-color: transparent;
-  font-family: Roboto;
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.2;
   padding: 0 20px 5px;
 }
-.profile__header__logout-icon {
+.profile-header__logout-icon {
   position: relative;
   width: 24px;
   height: 24px;
   top: 7px;
+}
+
+.profile-header__mobile-nav {
+  visibility: hidden;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 16px;
+  right: 16px;
+  background-image: url(../../assets/menu-black.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+}
+
+@media screen and (max-width: 770px) {
+  .profile-header__container {
+    max-height: 40px;
+    padding: 22px 40px 18px;
+  }
+  .profile-header__sign-in-btn {
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .profile-header__container {
+    padding: 16px;
+    box-sizing: border-box;
+    max-height: 56px;
+  }
+  .profile-header__mobile-nav {
+    visibility: visible;
+  }
+  .profile-header__logout-btn {
+    display: none;
+  }
+  .profile-header__home-btn {
+    display: none;
+  }
+  .profile-header__sign-in-btn {
+    display: none;
+  }
 }
