@@ -10,11 +10,21 @@ export default function Footer() {
       <a href="/" className="footer__home-btn">
         Home
       </a>
-      <a className="footer__triple-ten-btn">TripleTen</a>
-      <a href="" className="footer__github-icon">
+      <a
+        href="https://tripleten.com/"
+        className="footer__triple-ten-btn"
+        target="_blank"
+      >
+        TripleTen
+      </a>
+      <a
+        href="https://github.com/DmitriySlinkovenko"
+        className="footer__github-icon"
+        target="_blank"
+      >
         <img src={github} alt="Github icon" className="footer__github" />
       </a>
-      <a href="" className="footer__facebook-icon">
+      <a href="" className="footer__facebook-icon" target="_blank">
         <img src={fb} alt="Facebook icon" className="footer__fb" />
       </a>
     </footer>

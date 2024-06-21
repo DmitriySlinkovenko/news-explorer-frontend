@@ -9,7 +9,7 @@
   max-width: 100%;
   background-color: transparent;
   color: #fff;
-  padding: 19px 104px 0;
+  padding: 0 104px;
   height: 80px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -28,7 +28,7 @@
   text-decoration: none;
   border: none;
   color: #fff;
-  padding: 0;
+  padding: 28px 10px;
   background-color: transparent;
   cursor: pointer;
   margin-right: 42px;
@@ -71,6 +71,10 @@
   width: 24px;
   height: 24px;
   top: 7px;
+}
+
+.nav__home-btn_active {
+  border-bottom: 3px solid rgba(255, 255, 255, 1);
 }
 
 .mobile-nav {

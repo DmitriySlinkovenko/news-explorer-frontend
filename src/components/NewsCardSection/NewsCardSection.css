@@ -3,15 +3,19 @@
   background-color: rgba(245, 246, 247, 1);
   display: flex;
   flex-direction: column;
-  padding: 80px 104px;
+  padding: 0;
+  align-items: center;
+  box-sizing: content-box;
 }
 
 .card__containter {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  max-width: 100%;
+  max-width: 1280px;
+  margin: 0 20px;
   gap: 16px;
+  justify-content: start;
 }
 .card-section__heading {
   font-family: "Roboto Slab", Arial, sans-serif;
@@ -19,6 +23,8 @@
   font-weight: 400;
   line-height: 1.2;
   text-align: left;
+  align-self: flex-start;
+  margin: 80px auto 64px 104px;
 }
 
 .card-section__show-more-btn {
@@ -28,6 +34,12 @@
   background-color: rgba(232, 232, 232, 1);
   border: none;
   border-radius: 50px;
+}
+
+.card-section__failed-message {
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 80px;
 }
 
 @media screen and (max-width: 770px) {

@@ -3,7 +3,7 @@ import { useState, useContext } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { IsOpenContext } from "../../contexts/IsOpenContext";
 
-export default function SignInModal({ onCloseModal, handleLogin }) {
+export default function SignInModal({ onCloseModal }) {
   const { isOpen, clickHandlers } = useContext(IsOpenContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

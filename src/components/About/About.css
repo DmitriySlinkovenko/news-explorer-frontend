@@ -2,16 +2,13 @@
   width: 464px;
   height: 464px;
   border-radius: 50%;
-  background: url(../../assets/photo_2024-04-29_11-33-59.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 .about {
   padding: 80px 0 80px 104px;
   display: flex;
   max-width: 1440px;
   gap: 56px;
+  justify-content: center;
 }
 .about__title {
   margin: 131px auto 0;

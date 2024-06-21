@@ -1,14 +1,14 @@
 import React from "react";
-import ProfileHeader from "../ProfileHeader/ProfileHeader";
+import ProfileNav from "../ProfileNav/ProfileNav";
 import ProfileSubsection from "../ProfileSubsection/ProfileSubsection";
 import SavedNews from "../SavedNews/SavedNews";
 
 export default function Profile() {
   return (
-    <div>
-      <ProfileHeader />
+    <>
+      <ProfileNav />
       <ProfileSubsection />
       <SavedNews />
-    </div>
+    </>
   );
 }

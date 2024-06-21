@@ -1,4 +1,4 @@
-.profile-header__container {
+.profile-nav__container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -6,12 +6,12 @@
   max-width: 100%;
   background-color: transparent;
   color: #000;
-  padding: 19px 104px 0;
+  padding: 0 104px;
   height: 80px;
   border-bottom: 1px solid rgba(209, 210, 214, 1);
 }
 
-.profile-header__logo {
+.profile-nav__logo {
   flex-grow: 1;
   cursor: pointer;
   font-family: "Roboto Slab", Arial, sans-serif;
@@ -20,7 +20,7 @@
   line-height: 1.2;
   text-align: left;
 }
-.profile-header__home-btn {
+.profile-nav__home-btn {
   text-decoration: none;
   border: none;
   color: #000;
@@ -31,9 +31,14 @@
   font-size: 18px;
   font-weight: 500;
   line-height: 1.2;
+  padding: 28px 32px;
 }
 
-.profile-header__logout-btn {
+.profile-nav__home-btn_active {
+  border-bottom: 3px solid rgba(26, 27, 34, 1);
+}
+
+.profile-nav__logout-btn {
   color: rgba(26, 27, 34, 1);
   text-decoration: none;
   max-width: 176px;
@@ -48,14 +53,14 @@
   line-height: 1.2;
   padding: 0 20px 5px;
 }
-.profile-header__logout-icon {
+.profile-nav__logout-icon {
   position: relative;
   width: 24px;
   height: 24px;
   top: 7px;
 }
 
-.profile-header__mobile-nav {
+.profile-nav__mobile-nav {
   visibility: hidden;
   position: absolute;
   width: 24px;
@@ -70,31 +75,31 @@
 }
 
 @media screen and (max-width: 770px) {
-  .profile-header__container {
+  .profile-nav__container {
     max-height: 40px;
     padding: 22px 40px 18px;
   }
-  .profile-header__sign-in-btn {
+  .profile-nav__sign-in-btn {
     height: 40px;
   }
 }
 
 @media screen and (max-width: 620px) {
-  .profile-header__container {
+  .profile-nav__container {
     padding: 16px;
     box-sizing: border-box;
     max-height: 56px;
   }
-  .profile-header__mobile-nav {
+  .profile-nav__mobile-nav {
     visibility: visible;
   }
-  .profile-header__logout-btn {
+  .profile-nav__logout-btn {
     display: none;
   }
-  .profile-header__home-btn {
+  .profile-nav__home-btn {
     display: none;
   }
-  .profile-header__sign-in-btn {
+  .profile-nav__sign-in-btn {
     display: none;
   }
 }

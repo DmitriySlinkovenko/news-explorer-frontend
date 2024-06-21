@@ -1,19 +1,22 @@
 import React from "react";
 import "./About.css";
+import author from "../../assets/photo_2024-04-29_11-33-59.jpg";
 
 export default function About() {
   return (
-    <div className="about">
-      <img alt="Author Picture" className="about__image" />
+    <section className="about">
+      <img src={author} alt="Author Picture" className="about__image" />
       <div className="about__text">
         <h2 className="about__title">About the author</h2>
         <p className="about__paragraph">
-          This block describes the project author. Here you should indicate your
-          name, what you do, and which development technologies you know. You
-          can also talk about your experience with TripleTen, what you learned
-          there, and how you can help potential customers.
+          My name is Dmitriy Slinkovenko and I am a full-stack software
+          developer. I got my education at TripleTen Software Engineering
+          bootcamp, during which I developed a deep understanding and practiced
+          HTML5, CSS, and Javascript. I am proficient in Node.js, React.js,
+          Express.js and MongoDB. Currently looking for a job, remote or on-site
+          located in New York.
         </p>
       </div>
-    </div>
+    </section>
   );
 }

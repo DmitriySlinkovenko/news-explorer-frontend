@@ -13,10 +13,16 @@ import Profile from "../Profile/Profile.jsx";
 import About from "../About/About.jsx";
 import MobileModal from "../MobileModal/MobileModal.jsx";
 import { IsOpenContext } from "../../contexts/IsOpenContext.js";
+import { getNews } from "../../utils/api.js";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [mobileIsOpen, setMobileIsOpen] = useState(false);
+  const [news, setNews] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [searchPerformed, setSearchPerformed] = useState(false);
+  const [searchTag, setSearchTag] = useState("");
+  const [serverError, setServerError] = useState(false);
   const loginModalOpen = activeModal === "login";
   const registerModalOpen = activeModal === "register";
 
@@ -42,7 +48,6 @@ function App() {
       handleModalClose();
     }
   };
-
   useEffect(() => {
     window.addEventListener("keydown", addEventListener);
     return () => window.removeEventListener("keydown", addEventListener);
@@ -52,6 +57,36 @@ function App() {
     window.addEventListener("click", addEventListener);
     return () => window.removeEventListener("click", addEventListener);
   }, []);
+
+  useEffect(() => {
+    window.addEventListener("beforeunload", () => {
+      localStorage.clear();
+    });
+  }, []);
+
+  useEffect(() => {
+    setServerError(false);
+    const savedNews = JSON.parse(localStorage.getItem("News"));
+    setNews([savedNews], ...news);
+  }, []);
+
+  const handleSearchSubmit = (userInput) => {
+    setIsLoading(true);
+    setSearchTag(userInput);
+    return getNews(userInput)
+      .then((res) => {
+        setServerError(false);
+        setNews(res.articles, ...news);
+        setSearchPerformed(true);
+        localStorage.setItem("News", JSON.stringify(res.articles));
+      })
+      .catch((err) => {
+        console.log(err);
+        setServerError(true);
+      })
+      .finally(() => setIsLoading(false));
+  };
+  console.log(serverError);
 
   return (
     <>
@@ -69,8 +104,22 @@ function App() {
               path="/"
               element={
                 <>
-                  <Main />
-                  <NewsCardSection />
+                  <Main handleSearchSubmit={handleSearchSubmit} />
+                  {isLoading ? (
+                    <Preloader />
+                  ) : searchPerformed ? (
+                    news.length !== 0 ? (
+                      <NewsCardSection
+                        news={news}
+                        searchTag={searchTag}
+                        serverError={serverError}
+                      />
+                    ) : (
+                      <NothingFound />
+                    )
+                  ) : (
+                    <></>
+                  )}
                   <About />
                 </>
               }

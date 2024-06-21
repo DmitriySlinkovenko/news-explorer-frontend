@@ -2,35 +2,46 @@ import React, { useContext, useState } from "react";
 import "./Nav.css";
 import logout from "../../assets/logout.svg";
 import { IsOpenContext } from "../../contexts/IsOpenContext";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-export default function Nav({ isLoggedIn = true, currentUser = "Dmitriy" }) {
+export default function Nav({ isLoggedIn = false, currentUser = "Dmitriy" }) {
   const { clickHandlers, toggleMobileModal } = useContext(IsOpenContext);
-  const { handleLoginClick, handleRegisterClick } = clickHandlers;
-
+  const { handleLoginClick } = clickHandlers;
+  const customClassName = ({ isActive }) =>
+    "nav__home-btn" + (isActive ? " nav__home-btn_active" : "");
   return !isLoggedIn ? (
-    <div className="nav">
+    <nav className="nav">
       <div className="nav__container">
         <p className="nav__logo">NewsExplorer</p>
-        <Link to="/">
-          <button className="nav__home-btn">Home</button>
-        </Link>
+        <NavLink to="/" className={customClassName}>
+          Home
+        </NavLink>
 
-        <button className="nav__sign-in-btn" onClick={handleLoginClick}>
+        <button
+          className="nav__sign-in-btn"
+          onClick={handleLoginClick}
+          type="button"
+        >
           Sign In
         </button>
-        <button className="mobile-nav" onClick={toggleMobileModal}></button>
+        <button
+          className="mobile-nav"
+          onClick={toggleMobileModal}
+          type="button"
+        ></button>
       </div>
-    </div>
+    </nav>
   ) : (
-    <div className="nav">
+    <nav className="nav">
       <div className="nav__container">
         <p className="nav__logo">NewsExplorer</p>
-        <button className="nav__home-btn">Home</button>
-        <Link to="/saved-news">
-          <button className="nav__home-btn">Saved Articles</button>
-        </Link>
-        <button className="nav__logout-btn">
+        <NavLink to="/" className={customClassName}>
+          Home
+        </NavLink>
+        <NavLink to="/saved-news" className={customClassName}>
+          Saved Articles
+        </NavLink>
+        <button className="nav__logout-btn" type="button">
           {currentUser}
           <img
             src={logout}
@@ -38,8 +49,12 @@ export default function Nav({ isLoggedIn = true, currentUser = "Dmitriy" }) {
             className="nav__logout-icon"
           ></img>
         </button>
-        <button className="mobile-nav" onClick={toggleMobileModal}></button>
+        <button
+          className="mobile-nav"
+          onClick={toggleMobileModal}
+          type="button"
+        ></button>
       </div>
-    </div>
+    </nav>
   );
 }
