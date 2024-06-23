@@ -1,4 +1,3 @@
-import React from "react";
 import "./NothingFound.css";
 import nf from "../../assets/not-found_v1.svg";
 

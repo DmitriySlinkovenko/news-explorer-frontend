@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useContext } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { IsOpenContext } from "../../contexts/IsOpenContext";
@@ -20,11 +19,8 @@ export default function SignInModal({ onCloseModal }) {
 
   function handleSubmitForm(e) {
     e.preventDefault();
-    handleSignUp({ email, password, name, avatar });
     setEmail("");
     setPassword("");
-    setName("");
-    setAvatar("");
   }
 
   function SubmitButton() {
@@ -87,7 +83,7 @@ export default function SignInModal({ onCloseModal }) {
           className="form__redirect-btn"
           onClick={handleRegisterClick}
         >
-          or <span className="form__redirect-btn_span">Sign up</span>
+          or <span className="form__redirect-span">Sign up</span>
         </button>
       </ModalWithForm>
     </>

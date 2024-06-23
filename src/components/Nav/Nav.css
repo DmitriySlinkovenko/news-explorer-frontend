@@ -6,19 +6,20 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  max-width: 100%;
+  max-width: 1440px;
   background-color: transparent;
   color: #fff;
   padding: 0 104px;
   height: 80px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 0 auto;
 }
 
 .nav__logo {
   flex-grow: 1;
   margin: 0;
   cursor: pointer;
-  font-family: "Roboto Slab", sans-serif;
+  font-family: "Roboto Slab", Arial, sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 1.2;
@@ -32,7 +33,7 @@
   background-color: transparent;
   cursor: pointer;
   margin-right: 42px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.2;
@@ -46,7 +47,7 @@
   border: 1px solid #fff;
   border-radius: 25px;
   background-color: transparent;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.2;
@@ -91,10 +92,17 @@
   border: none;
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 1000px) {
   .nav__container {
-    max-height: 40px;
-    padding: 22px 40px 18px;
+    max-height: 66px;
+    padding: 14px 40px 12px;
+    box-sizing: border-box;
+  }
+  .nav__home-btn {
+    margin-right: 16px;
+    width: 60px;
+    padding: 22px 0 22px;
+    text-align: center;
   }
   .nav__sign-in-btn {
     height: 40px;
@@ -102,6 +110,9 @@
 }
 
 @media screen and (max-width: 620px) {
+  .nav__logo {
+    font-size: 16px;
+  }
   .nav__container {
     padding: 16px;
     box-sizing: border-box;

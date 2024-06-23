@@ -34,11 +34,13 @@
 .form__input {
   border: none;
   border-bottom: 1px solid gray;
-  margin: 0 0 30px;
-  padding: 0;
-  font-size: 16px;
-  line-height: 1.2;
-  font-weight: 700;
+  margin: 9px 0 30px;
+  padding: 0 0 10px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  text-align: left;
 }
 
 .form__radio-input {
@@ -63,10 +65,13 @@
 .form__title {
   max-width: 315px;
   margin: 0 0 20px;
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 24px;
   font-weight: 900;
+  line-height: 28.13px;
   text-align: left;
-  color: black;
+
+  color: rgba(26, 27, 34, 1);
 }
 .form__submit-btn {
   width: 100%;
@@ -91,7 +96,7 @@
   background-color: rgba(230, 232, 235, 1);
 }
 
-.form__redirect-btn_span {
+.form__redirect-span {
   color: rgba(47, 113, 229, 1);
 }
 
@@ -137,22 +142,29 @@
   visibility: visible;
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 1000px) {
   .modal__container {
-    width: 375px;
     height: auto;
+  }
+  .form__submit-btn {
+    margin-top: 10px;
   }
 }
 
 @media screen and (max-width: 620px) {
   .modal__container {
     width: 100%;
-    padding: 16px 16px 252px;
-    top: 336px;
-    height: 100vh;
+    padding: 16px 16px 100vh;
+    top: calc(50% + 56px);
   }
   .form__close-btn {
     top: -53px;
     right: 0;
+  }
+  .form__input[type="password"] {
+    margin-bottom: 23px;
+  }
+  .form__submit-btn {
+    margin: 0;
   }
 }

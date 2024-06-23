@@ -1,4 +1,3 @@
-import React from "react";
 import "./Footer.css";
 import fb from "../../assets/fb-icon.svg";
 import github from "../../assets/github-icon.svg";
@@ -24,7 +23,11 @@ export default function Footer() {
       >
         <img src={github} alt="Github icon" className="footer__github" />
       </a>
-      <a href="" className="footer__facebook-icon" target="_blank">
+      <a
+        href="https://www.facebook.com/dmitriy.slinkovenko/"
+        className="footer__facebook-icon"
+        target="_blank"
+      >
         <img src={fb} alt="Facebook icon" className="footer__fb" />
       </a>
     </footer>

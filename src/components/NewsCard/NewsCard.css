@@ -9,9 +9,9 @@
   transition: linear 0.5s;
 }
 
-.card:hover {
+/*.card:hover {
   transform: translateY(-20px);
-}
+}*/
 
 .card__image {
   border-radius: 15px 15px 0 0;
@@ -141,7 +141,7 @@
   text-align: center;
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 1000px) {
   .card {
     width: 224px;
     height: 420px;

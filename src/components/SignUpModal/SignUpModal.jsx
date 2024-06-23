@@ -1,9 +1,8 @@
-import React from "react";
 import { useState, useContext } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import { IsOpenContext } from "../../contexts/IsOpenContext.js";
 
-export default function SignUpModal({ onCloseModal, handleLogin }) {
+export default function SignUpModal({ onCloseModal }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,7 +24,6 @@ export default function SignUpModal({ onCloseModal, handleLogin }) {
 
   function handleSubmitForm(e) {
     e.preventDefault();
-    handleSignUp({ email, password, name, avatar });
     setEmail("");
     setPassword("");
     setName("");

@@ -6,16 +6,13 @@
   padding: 80px 104px;
 }
 
-@media screen and (max-width: 770px) {
-  .card-section {
+@media screen and (max-width: 1000px) {
+  .saved-news-section {
     padding: 40px;
   }
 }
 
 @media screen and (max-width: 620px) {
-  .card-section {
-    padding: 32px 16px 24px;
-  }
   .saved-news-section {
     padding: 24px 16px 12px;
   }

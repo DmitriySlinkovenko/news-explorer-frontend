@@ -18,6 +18,7 @@
   font-size: 20px;
   font-weight: 700;
   line-height: 1.2;
+  margin: 0;
   text-align: left;
 }
 .profile-nav__home-btn {
@@ -74,13 +75,21 @@
   border: none;
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 1000px) {
   .profile-nav__container {
-    max-height: 40px;
-    padding: 22px 40px 18px;
+    padding: 14px 40px 12px;
+    height: 66px;
+    box-sizing: border-box;
   }
   .profile-nav__sign-in-btn {
     height: 40px;
+  }
+
+  .profile-nav__home-btn {
+    margin-right: 16px;
+    padding: 22px 22px 22px;
+    text-align: center;
+    box-sizing: border-box;
   }
 }
 

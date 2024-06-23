@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./SearchForm.css";
 
 export default function SearchForm({ handleSearchSubmit }) {
@@ -21,7 +21,9 @@ export default function SearchForm({ handleSearchSubmit }) {
   return (
     <form className="search-form" onSubmit={handleSubmit}>
       <div className="search-form__container">
-        <h1 className="search-form__title">What's going on in the world?</h1>
+        <h1 className="search-form__title">
+          What&apos;s going on in the world?
+        </h1>
         <p className="search-form__subtitle">
           Find the latest news on any topic and save them in your personal
           accout.

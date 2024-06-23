@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./NewsCardSection.css";
 import NewsCard from "../NewsCard/NewsCard";
 

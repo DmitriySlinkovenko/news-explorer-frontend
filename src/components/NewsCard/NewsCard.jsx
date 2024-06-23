@@ -1,4 +1,3 @@
-import React from "react";
 import "./NewsCard.css";
 import placeholder from "../../assets/No-Image-Placeholder.svg.png";
 

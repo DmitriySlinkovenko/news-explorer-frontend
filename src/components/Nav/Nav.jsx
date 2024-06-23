@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext } from "react";
 import "./Nav.css";
 import logout from "../../assets/logout.svg";
 import { IsOpenContext } from "../../contexts/IsOpenContext";

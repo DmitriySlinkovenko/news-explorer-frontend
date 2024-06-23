@@ -1,8 +1,7 @@
-import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./RegSuccessModal.css";
 
-export default function RegSuccessModal({ onCloseModal, isOpen, handleLogin }) {
+export default function RegSuccessModal({ onCloseModal, isOpen }) {
   return (
     <ModalWithForm
       isOpen={isOpen}

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import "./ProfileNav.css";
 import logout from "../../assets/logout-black.svg";
 import { NavLink } from "react-router-dom";

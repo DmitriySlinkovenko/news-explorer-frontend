@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import "./MobileModal.css";
 import { IsOpenContext } from "../../contexts/IsOpenContext";
 import { Link } from "react-router-dom";
@@ -12,13 +12,20 @@ export default function MobileModal() {
       <div className="mobile-header__container">
         <p className="mobile-nav__logo">NewsExplorer</p>
         <button
+          type="button"
           className="modal__close-btn"
           onClick={toggleMobileModal}
         ></button>
       </div>
       <div className="mobile__button-container">
         <Link to="/">
-          <button className="mobile-nav__home-btn">Home</button>
+          <button
+            type="button"
+            onClick={toggleMobileModal}
+            className="mobile-nav__home-btn"
+          >
+            Home
+          </button>
         </Link>
 
         <button

@@ -1,10 +1,9 @@
-import React from "react";
 import "./ProfileSubsection.css";
 
 export default function ProfileSubsection({
   currentUser = "Dmitriy",
   savedArticles = 5,
-  searchWords = ["Nature", "YellowStone"],
+  searchWords = ["Nature", "YellowStone", "Heroes"],
 }) {
   return (
     <div className="saved-page">
@@ -13,8 +12,11 @@ export default function ProfileSubsection({
         {currentUser}, you have {savedArticles} saved articles
       </h2>
       <p className="saved-page__subtitle">
-        By keywords: {searchWords[0]}, {searchWords[1]}
-        {searchWords.length > 2 && ` and ${searchWords.length - 2} more`}
+        By keywords:{" "}
+        <span className="save-page__subtitle-span">
+          {searchWords[0]}, {searchWords[1]}
+          {searchWords.length > 2 && ` and ${searchWords.length - 2} more`}
+        </span>
       </p>
     </div>
   );

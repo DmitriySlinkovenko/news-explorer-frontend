@@ -8,11 +8,14 @@
   display: flex;
   max-width: 1440px;
   gap: 56px;
-  justify-content: center;
+  margin: 0 auto;
+}
+.about__text {
+  margin-right: 80px;
 }
 .about__title {
-  margin: 131px auto 0;
-  color: black;
+  margin: 51px auto 0 0;
+  color: rgba(26, 27, 34, 1);
   max-width: 600px;
   font-family: "Roboto Slab", Arial, sans-serif;
   font-size: 40px;
@@ -21,25 +24,27 @@
 }
 .about__paragraph {
   color: black;
-  max-width: 600px;
   margin: 24px auto 0;
   font-size: 18px;
   font-weight: 400;
   text-align: left;
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 1000px) {
   .about__image {
     width: 232px;
     height: 232px;
+    margin-top: 21px;
   }
   .about {
-    padding: 61px 40px;
+    padding: 40px 40px 61px 40px;
     gap: 32px;
   }
   .about__title {
     max-width: 424px;
     margin: 0;
+    font-size: 30px;
+    line-height: 40px;
   }
   .about__paragraph {
     margin-top: 16px;
@@ -47,7 +52,7 @@
   }
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 680px) {
   .about {
     flex-direction: column;
     align-items: center;

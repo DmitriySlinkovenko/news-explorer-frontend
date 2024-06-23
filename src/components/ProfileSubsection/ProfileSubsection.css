@@ -10,10 +10,52 @@
   line-height: 1.2;
   text-align: left;
   max-width: 530px;
+  color: rgba(26, 27, 34, 1);
+}
+
+.saved-page__subheading {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: rgba(26, 27, 34, 0.5);
+}
+
+.saved-page__subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  margin: 0;
+}
+.save-page__subtitle-span {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+  color: rgba(26, 27, 34, 1);
+}
+
+@media screen and (max-width: 1000px) {
+  .saved-page {
+    padding: 24px 0 32px 40px;
+  }
+  .saved-page__title {
+    margin: 16px auto 16px 0;
+    font-size: 30px;
+    max-width: 336px;
+  }
+  .saved-page__subheading {
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-width: 620px) {
   .saved-page {
-    padding: 8px 16px 12px;
+    padding: 8px 16px 32px;
+  }
+  .saved-page__title {
+    margin-bottom: 50px;
   }
 }

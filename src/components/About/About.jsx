@@ -1,4 +1,3 @@
-import React from "react";
 import "./About.css";
 import author from "../../assets/photo_2024-04-29_11-33-59.jpg";
 
