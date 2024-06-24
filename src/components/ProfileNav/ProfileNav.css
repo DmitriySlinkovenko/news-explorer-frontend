@@ -3,8 +3,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  max-width: 100%;
+  max-width: 1440px;
   background-color: transparent;
+  margin: 0 auto;
   color: #000;
   padding: 0 104px;
   height: 80px;
