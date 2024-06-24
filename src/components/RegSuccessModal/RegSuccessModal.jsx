@@ -9,8 +9,8 @@ export default function RegSuccessModal({ onCloseModal, isOpen }) {
       redirectText={"Sign In"}
       onCloseModal={onCloseModal}
     >
-      <button className="form__redirect-btn form__redirect-btn_position">
-        <span className="form__redirect-btn_span">Sign in</span>
+      <button className="modal__redirect-btn modal__redirect-btn_position">
+        <span className="modal__redirect-span">Sign in</span>
       </button>
     </ModalWithForm>
   );

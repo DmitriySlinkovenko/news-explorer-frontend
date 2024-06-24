@@ -6,6 +6,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
   max-width: 1440px;
   background-color: transparent;
   color: #fff;
@@ -22,7 +23,7 @@
   font-family: "Roboto Slab", Arial, sans-serif;
   font-size: 20px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 24px;
   text-align: left;
 }
 .nav__home-btn {
@@ -36,7 +37,7 @@
   font-family: "Roboto", Arial, sans-serif;
   font-size: 18px;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 24px;
 }
 .nav__sign-in-btn {
   color: #fff;
@@ -50,7 +51,7 @@
   font-family: "Roboto", Arial, sans-serif;
   font-size: 18px;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 24px;
 }
 .nav__logout-btn {
   color: #fff;
@@ -78,7 +79,7 @@
   border-bottom: 3px solid rgba(255, 255, 255, 1);
 }
 
-.mobile-nav {
+.nav__mobile-nav {
   visibility: hidden;
   position: absolute;
   width: 24px;
@@ -101,15 +102,16 @@
   .nav__home-btn {
     margin-right: 16px;
     width: 60px;
-    padding: 22px 0 22px;
+    padding: 21px 0 17px;
     text-align: center;
   }
   .nav__sign-in-btn {
     height: 40px;
+    width: 152px;
   }
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 680px) {
   .nav__logo {
     font-size: 16px;
   }
@@ -118,7 +120,7 @@
     box-sizing: border-box;
     max-height: 56px;
   }
-  .mobile-nav {
+  .nav__mobile-nav {
     visibility: visible;
   }
   .nav__logout-btn {

@@ -1,11 +1,11 @@
-.form {
+.modal__form {
   display: flex;
   flex-direction: column;
   position: relative;
   height: 100%;
 }
 
-.form__label {
+.modal__form-label {
   display: flex;
   flex-direction: column;
   font-family: "Inter", Arial, sans-serif;
@@ -16,11 +16,7 @@
   color: rgba(47, 113, 229, 1);
 }
 
-.form__label_radio {
-  margin: 0 0 12px;
-}
-
-.form__redirect-btn {
+.modal__redirect-btn {
   color: rgba(0, 0, 0, 1);
   border: none;
   background-color: transparent;
@@ -31,11 +27,11 @@
   text-align: center;
 }
 
-.form__input {
+.modal__form-input {
   border: none;
   border-bottom: 1px solid gray;
   margin: 9px 0 30px;
-  padding: 0 0 10px;
+  padding: 0 0 8px;
   font-family: "Inter", Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -43,28 +39,9 @@
   text-align: left;
 }
 
-.form__radio-input {
-  margin: 0 0 8px;
-}
-
-.radio__btn {
-  color: rgb(0, 0, 0, 0.5);
-}
-
-.radio-btn__title {
-  color: rgb(0, 0, 0, 0.5);
-  font-size: 16px;
-  line-height: 1.2;
-  font-weight: 700;
-}
-
-.radio__btn:checked + .radio-btn__title {
-  color: rgb(0, 0, 0, 1);
-}
-
-.form__title {
+.modal__title {
   max-width: 315px;
-  margin: 0 0 20px;
+  margin: 0 0 22px;
   font-family: "Roboto", Arial, sans-serif;
   font-size: 24px;
   font-weight: 900;
@@ -73,14 +50,14 @@
 
   color: rgba(26, 27, 34, 1);
 }
-.form__submit-btn {
+.modal__submit-btn {
   width: 100%;
   height: 64px;
   border-radius: 35px;
   border: none;
   background-color: rgba(47, 113, 229, 1);
   color: white;
-  margin-top: 40px;
+  margin-top: 13px;
   padding: 20px 0 20px;
   cursor: pointer;
   font-size: 18px;
@@ -88,19 +65,19 @@
   text-align: center;
 }
 
-.form__submit-btn:hover {
+.modal__submit-btn:hover {
   background-color: hsla(0, 0%, 0%, 0.6);
 }
 
-.form__submit-btn_disabled {
+.modal__submit-btn_disabled {
   background-color: rgba(230, 232, 235, 1);
 }
 
-.form__redirect-span {
+.modal__redirect-span {
   color: rgba(47, 113, 229, 1);
 }
 
-.form__close-btn {
+.modal__close-btn {
   position: absolute;
   background-image: url(../../assets/close-button.svg);
   background-color: transparent;
@@ -110,6 +87,7 @@
   height: 22px;
   border: none;
   right: -65px;
+  cursor: pointer;
   top: -65px;
 }
 
@@ -146,25 +124,25 @@
   .modal__container {
     height: auto;
   }
-  .form__submit-btn {
+  .modal__submit-btn {
     margin-top: 10px;
   }
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 680px) {
   .modal__container {
     width: 100%;
     padding: 16px 16px 100vh;
     top: calc(50% + 56px);
   }
-  .form__close-btn {
+  .modal__close-btn {
     top: -53px;
     right: 0;
   }
-  .form__input[type="password"] {
+  .modal__form-input[type="password"] {
     margin-bottom: 23px;
   }
-  .form__submit-btn {
+  .modal__submit-btn {
     margin: 0;
   }
 }

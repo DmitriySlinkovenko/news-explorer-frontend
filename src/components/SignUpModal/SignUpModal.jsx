@@ -32,7 +32,7 @@ export default function SignUpModal({ onCloseModal }) {
   function SubmitButton() {
     if (password && email && name) {
       return (
-        <button type="button" className="form__submit-btn">
+        <button type="button" className="modal__submit-btn">
           Sign Up
         </button>
       );
@@ -40,7 +40,7 @@ export default function SignUpModal({ onCloseModal }) {
       return (
         <button
           type="button"
-          className="form__submit-btn form__submit-btn_disabled"
+          className="modal__submit-btn modal__submit-btn_disabled"
           disabled
         >
           Sign Up
@@ -57,7 +57,7 @@ export default function SignUpModal({ onCloseModal }) {
         handleSubmitForm={handleSubmitForm}
         title={"Sign Up"}
       >
-        <label className="form__label">
+        <label className="modal__form-label">
           Email
           <input
             type="text"
@@ -65,15 +65,15 @@ export default function SignUpModal({ onCloseModal }) {
             id="register-email"
             onChange={handleEmailChange}
             placeholder="Enter email"
-            className="form__input"
+            className="modal__form-input"
             required={true}
             value={email}
           />
         </label>
-        <label className="form__label">
+        <label className="modal__form-label">
           Password
           <input
-            className="form__input"
+            className="modal__form-input"
             type="password"
             name="password"
             id="register-password"
@@ -83,10 +83,10 @@ export default function SignUpModal({ onCloseModal }) {
             value={password}
           />
         </label>
-        <label className="form__label">
+        <label className="modal__form-label">
           Username
           <input
-            className="form__input"
+            className="modal__form-input"
             type="text"
             name="username"
             id="username"
@@ -101,10 +101,10 @@ export default function SignUpModal({ onCloseModal }) {
         <SubmitButton />
         <button
           type="button"
-          className="form__redirect-btn"
+          className="modal__redirect-btn"
           onClick={handleLoginClick}
         >
-          or <span className="form__redirect-btn_span">Sign in</span>
+          or <span className="modal__redirect-span">Sign in</span>
         </button>
       </ModalWithForm>
     </>

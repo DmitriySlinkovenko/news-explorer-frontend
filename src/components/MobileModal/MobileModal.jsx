@@ -8,21 +8,23 @@ export default function MobileModal() {
     useContext(IsOpenContext);
   const { handleLoginClick } = clickHandlers;
   return (
-    <div className={`mobile ${mobileIsOpen ? "mobile_active" : ""}`}>
-      <div className="mobile-header__container">
-        <p className="mobile-nav__logo">NewsExplorer</p>
+    <div
+      className={`mobile-modal ${mobileIsOpen ? "mobile-modal_active" : ""}`}
+    >
+      <div className="mobile-modal__container">
+        <p className="mobile-modal__nav-logo">NewsExplorer</p>
         <button
           type="button"
-          className="modal__close-btn"
+          className="mobile-modal__close-btn"
           onClick={toggleMobileModal}
         ></button>
       </div>
-      <div className="mobile__button-container">
+      <div className="mobile-modal__button-container">
         <Link to="/">
           <button
             type="button"
             onClick={toggleMobileModal}
-            className="mobile-nav__home-btn"
+            className="mobile-modal__home-btn"
           >
             Home
           </button>
@@ -30,7 +32,7 @@ export default function MobileModal() {
 
         <button
           type=" button"
-          className="mobile-nav__sign-in-btn"
+          className="mobile-modal__sign-in-btn"
           onClick={handleLoginClick}
         >
           Sign In

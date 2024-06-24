@@ -24,7 +24,7 @@ export default function NewsSection({ news, searchTag, serverError }) {
         </p>
       ) : (
         <>
-          <div className="card__containter">{renderCards()}</div>
+          <div className="card-section__containter">{renderCards()}</div>
           {visibleCount < news.length && (
             <button
               type="button"

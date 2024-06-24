@@ -25,7 +25,7 @@ export default function Nav({ isLoggedIn = false, currentUser = "Dmitriy" }) {
           Sign In
         </button>
         <button
-          className="mobile-nav"
+          className="nav__mobile-nav"
           onClick={toggleMobileModal}
           type="button"
         ></button>
@@ -50,7 +50,7 @@ export default function Nav({ isLoggedIn = false, currentUser = "Dmitriy" }) {
           ></img>
         </button>
         <button
-          className="mobile-nav"
+          className="nav__mobile-nav"
           onClick={toggleMobileModal}
           type="button"
         ></button>
