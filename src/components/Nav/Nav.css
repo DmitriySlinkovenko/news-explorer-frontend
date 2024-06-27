@@ -1,0 +1,135 @@
+.nav {
+  position: relative;
+}
+.nav__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  max-width: 1440px;
+  background-color: transparent;
+  color: #fff;
+  padding: 0 104px;
+  height: 80px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 0 auto;
+}
+
+.nav__logo {
+  flex-grow: 1;
+  margin: 0;
+  cursor: pointer;
+  font-family: "Roboto Slab", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+}
+.nav__home-btn {
+  text-decoration: none;
+  border: none;
+  color: #fff;
+  padding: 28px 10px;
+  background-color: transparent;
+  cursor: pointer;
+  margin-right: 42px;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}
+.nav__sign-in-btn {
+  color: #fff;
+  text-decoration: none;
+  width: 176px;
+  cursor: pointer;
+  height: 48px;
+  border: 1px solid #fff;
+  border-radius: 25px;
+  background-color: transparent;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}
+.nav__logout-btn {
+  color: #fff;
+  text-decoration: none;
+  max-width: 176px;
+  cursor: pointer;
+  height: 48px;
+  border: 1px solid #fff;
+  border-radius: 25px;
+  background-color: transparent;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+  padding: 0 20px 5px;
+}
+.nav__logout-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  top: 7px;
+}
+
+.nav__home-btn_active {
+  border-bottom: 3px solid rgba(255, 255, 255, 1);
+}
+
+.nav__mobile-nav {
+  visibility: hidden;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 16px;
+  right: 16px;
+  background-image: url(../../assets/menu.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .nav__container {
+    max-height: 66px;
+    padding: 14px 40px 12px;
+    box-sizing: border-box;
+  }
+  .nav__home-btn {
+    margin-right: 16px;
+    width: 60px;
+    padding: 21px 0 17px;
+    text-align: center;
+  }
+  .nav__sign-in-btn {
+    height: 40px;
+    width: 152px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .nav__logo {
+    font-size: 16px;
+  }
+  .nav__container {
+    padding: 16px;
+    box-sizing: border-box;
+    max-height: 56px;
+  }
+  .nav__mobile-nav {
+    visibility: visible;
+  }
+  .nav__logout-btn {
+    display: none;
+  }
+  .nav__home-btn {
+    display: none;
+  }
+  .nav__sign-in-btn {
+    display: none;
+  }
+}

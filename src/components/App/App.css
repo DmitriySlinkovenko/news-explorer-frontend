@@ -1,0 +1,7 @@
+@import url(../../vendor/fonts.css);
+
+.page {
+  color: #fff;
+  font-family: "Roboto", Arial, sans-serif;
+  line-height: 1.2;
+}

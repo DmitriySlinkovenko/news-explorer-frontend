@@ -1,0 +1,115 @@
+.profile-nav__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1440px;
+  background-color: transparent;
+  margin: 0 auto;
+  color: #000;
+  padding: 0 104px;
+  height: 80px;
+  border-bottom: 1px solid rgba(209, 210, 214, 1);
+}
+
+.profile-nav__logo {
+  flex-grow: 1;
+  cursor: pointer;
+  font-family: "Roboto Slab", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  text-align: left;
+}
+.profile-nav__home-btn {
+  text-decoration: none;
+  border: none;
+  color: #000;
+  background-color: transparent;
+  cursor: pointer;
+  margin-right: 42px;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+  padding: 28px 32px;
+}
+
+.profile-nav__home-btn_active {
+  border-bottom: 3px solid rgba(26, 27, 34, 1);
+}
+
+.profile-nav__logout-btn {
+  color: rgba(26, 27, 34, 1);
+  text-decoration: none;
+  max-width: 176px;
+  cursor: pointer;
+  height: 48px;
+  border: 1px solid #000;
+  border-radius: 25px;
+  background-color: transparent;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+  padding: 0 20px 5px;
+}
+.profile-nav__logout-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  top: 7px;
+}
+
+.profile-nav__mobile-nav {
+  visibility: hidden;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 16px;
+  right: 16px;
+  background-image: url(../../assets/menu-black.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .profile-nav__container {
+    padding: 14px 40px 12px;
+    height: 66px;
+    box-sizing: border-box;
+  }
+  .profile-nav__sign-in-btn {
+    height: 40px;
+  }
+
+  .profile-nav__home-btn {
+    margin-right: 16px;
+    padding: 22px 22px 22px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .profile-nav__container {
+    padding: 16px;
+    box-sizing: border-box;
+    max-height: 56px;
+  }
+  .profile-nav__mobile-nav {
+    visibility: visible;
+  }
+  .profile-nav__logout-btn {
+    display: none;
+  }
+  .profile-nav__home-btn {
+    display: none;
+  }
+  .profile-nav__sign-in-btn {
+    display: none;
+  }
+}
