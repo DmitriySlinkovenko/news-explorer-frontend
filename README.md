@@ -28,5 +28,5 @@ Will be deployed to Google Cloud once my back-end gets finished.
 ## Screenshots
 
 ![App Header](./public/header-nav.jpg)
-![About Section](./public/about.jpg.jpg)
+![About Section](./public/about.jpg)
 ![Search Results](./public/search-results.jpg)
