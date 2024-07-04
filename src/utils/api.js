@@ -35,4 +35,4 @@ function removeItem(id, token) {
   }).then((res) => checkResponse(res));
 }
 
-export { getItems, addItem, removeItem, checkResponse, baseUrl };
+export { getItems, addItem, removeItem, checkResponse };

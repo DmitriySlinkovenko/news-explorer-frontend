@@ -7,6 +7,7 @@ export default function NewsSection({
   searchTag,
   serverError,
   isProfilePage,
+  handleSaveNewsSubmit,
 }) {
   const [visibleCount, setVisibleCount] = useState(3);
   const renderCards = () => {
@@ -18,6 +19,7 @@ export default function NewsSection({
           item={item}
           searchTag={searchTag}
           isProfilePage={isProfilePage}
+          handleSaveNewsSubmit={handleSaveNewsSubmit}
         />
       ));
   };

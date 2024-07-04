@@ -3,13 +3,27 @@ import placeholder from "../../assets/No-Image-Placeholder.svg.png";
 import { useContext } from "react";
 import { IsOpenContext } from "../../contexts/IsOpenContext";
 
-export default function NewsCard({ isProfilePage, item, searchTag }) {
+export default function NewsCard({
+  isProfilePage,
+  item,
+  searchTag,
+  handleSaveNewsSubmit,
+}) {
   const iso8601ToFormattedDate = (isoDate) => {
     const date = new Date(isoDate);
     const options = { day: "numeric", month: "long", year: "numeric" };
     return date.toLocaleDateString("en-US", options);
   };
   const { isLoggedIn } = useContext(IsOpenContext);
+  const name = item.source.name;
+  const title = item.title;
+  const description = item.description;
+  const urlToImage = item.urlToImage;
+  const publishedAt = iso8601ToFormattedDate(item.publishedAt);
+
+  const handleBookmark = () => {
+    handleSaveNewsSubmit({ name, title, description, urlToImage, publishedAt });
+  };
 
   return !isProfilePage ? (
     <div className="card">
@@ -24,6 +38,7 @@ export default function NewsCard({ isProfilePage, item, searchTag }) {
           type="button"
           className="card__bookmark-btn"
           disabled={isLoggedIn ? false : true}
+          onClick={handleBookmark}
         ></button>
         <p
           className={

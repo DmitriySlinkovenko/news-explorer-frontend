@@ -16,7 +16,7 @@ import { IsOpenContext } from "../../contexts/IsOpenContext.js";
 import { getNews } from "../../utils/newsAPI.js";
 import { signIn, signUp, checkToken } from "../../utils/auth.js";
 import { addItem, removeItem, getItems } from "../../utils/api.js";
-import { getToken, setToken, removeToken } from "../../utils/token.js";
+import { getToken, setToken } from "../../utils/token.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
 function App() {
@@ -66,16 +66,17 @@ function App() {
     return () => window.removeEventListener("click", addEventListener);
   }, []);
 
-  useEffect(() => {
+  /*useEffect(() => {
     window.addEventListener("beforeunload", () => {
       localStorage.clear();
     });
-  }, []);
+  }, []); */
 
   useEffect(() => {
     setServerError(false);
-    const savedNews = JSON.parse(localStorage.getItem("News"));
+    const savedNews = localStorage.getItem("News");
     setNews([savedNews], ...news);
+    console.log([savedNews]);
   }, []);
 
   useEffect(() => {
@@ -103,7 +104,7 @@ function App() {
         setServerError(false);
         setNews(res.articles, ...news);
         setSearchPerformed(true);
-        localStorage.setItem("News", JSON.stringify(res.articles));
+        localStorage.setItem("News", res.articles);
       })
       .catch((err) => {
         console.log(err);
@@ -111,13 +112,12 @@ function App() {
       })
       .finally(() => setIsLoading(false));
   };
-
   function handleSaveNewsSubmit(data) {
+    console.log(data);
     const jwt = getToken();
     addItem(data, jwt)
       .then((item) => {
         console.log(item);
-        handleModalClose();
       })
       .catch(console.error);
   }
@@ -142,7 +142,6 @@ function App() {
           checkToken(res.token).then((res) => {
             setIsLoggedIn(true);
             setCurrentUser(res);
-            console.log(res);
             const redirectPath = location.state?.from?.pathname || "/";
             navigate(redirectPath);
             handleModalClose();
@@ -151,7 +150,6 @@ function App() {
       })
       .catch((err) => console.error(err.message));
   };
-  console.log(currentUser);
 
   return (
     <>
@@ -181,6 +179,7 @@ function App() {
                           searchTag={searchTag}
                           serverError={serverError}
                           isProfilePage={isProfilePage}
+                          handleSaveNewsSubmit={handleSaveNewsSubmit}
                         />
                       ) : (
                         <NothingFound />
