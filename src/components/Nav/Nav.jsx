@@ -3,9 +3,12 @@ import "./Nav.css";
 import logout from "../../assets/logout.svg";
 import { IsOpenContext } from "../../contexts/IsOpenContext";
 import { NavLink } from "react-router-dom";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-export default function Nav({ isLoggedIn = false, currentUser = "Dmitriy" }) {
-  const { clickHandlers, toggleMobileModal } = useContext(IsOpenContext);
+export default function Nav() {
+  const { clickHandlers, toggleMobileModal, isLoggedIn } =
+    useContext(IsOpenContext);
+  const currentUser = useContext(CurrentUserContext);
   const { handleLoginClick } = clickHandlers;
   const customClassName = ({ isActive }) =>
     "nav__home-btn" + (isActive ? " nav__home-btn_active" : "");
@@ -42,7 +45,7 @@ export default function Nav({ isLoggedIn = false, currentUser = "Dmitriy" }) {
           Saved Articles
         </NavLink>
         <button className="nav__logout-btn" type="button">
-          {currentUser}
+          {currentUser.name}
           <img
             src={logout}
             alt="Logout icon"

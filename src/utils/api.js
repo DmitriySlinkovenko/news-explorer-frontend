@@ -1,22 +1,38 @@
-const apiKey = "de4f97bf9a2a44eb82eae426ffef087f";
-let today = new Date();
-const dateTo = today.toISOString().slice(0, 10);
-function dateFrom() {
-  let sevenDaysAgo = new Date(today);
-  sevenDaysAgo.setDate(today.getDate() - 7);
-  let isoDate = sevenDaysAgo.toISOString().slice(0, 10);
-  return isoDate;
-}
-const baseUrl = `https://newsapi.org/v2`;
+const baseUrl = "http://localhost:3002";
 
 const checkResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
 
-function getNews(userInput) {
-  return fetch(
-    `${baseUrl}/everything?q=${userInput}&from=${dateFrom()}&to=${dateTo}&apiKey=${apiKey}`
-  ).then((res) => checkResponse(res));
+function getItems() {
+  return fetch(`${baseUrl}/items`).then((res) => checkResponse(res));
 }
 
-export { getNews };
+function addItem({ name, description, urlToImage, title, publishedAt }, token) {
+  return fetch(`${baseUrl}/items`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      name,
+      description,
+      urlToImage,
+      title,
+      publishedAt,
+    }),
+  }).then(checkResponse);
+}
+
+function removeItem(id, token) {
+  return fetch(`${baseUrl}/items/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((res) => checkResponse(res));
+}
+
+export { getItems, addItem, removeItem, checkResponse, baseUrl };

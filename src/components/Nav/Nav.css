@@ -57,6 +57,8 @@
   color: #fff;
   text-decoration: none;
   max-width: 176px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   cursor: pointer;
   height: 48px;
   border: 1px solid #fff;

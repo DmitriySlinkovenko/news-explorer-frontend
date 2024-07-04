@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import "./App.css";
 import Main from "../Main/Main.jsx";
 import Footer from "../Footer/Footer.jsx";
@@ -13,7 +13,11 @@ import Profile from "../Profile/Profile.jsx";
 import About from "../About/About.jsx";
 import MobileModal from "../MobileModal/MobileModal.jsx";
 import { IsOpenContext } from "../../contexts/IsOpenContext.js";
-import { getNews } from "../../utils/api.js";
+import { getNews } from "../../utils/newsAPI.js";
+import { signIn, signUp, checkToken } from "../../utils/auth.js";
+import { addItem, removeItem, getItems } from "../../utils/api.js";
+import { getToken, setToken, removeToken } from "../../utils/token.js";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -23,6 +27,10 @@ function App() {
   const [searchPerformed, setSearchPerformed] = useState(false);
   const [searchTag, setSearchTag] = useState("");
   const [serverError, setServerError] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState("");
+  const [isProfilePage, setIsProfilePage] = useState(false);
+  const navigate = useNavigate();
   const loginModalOpen = activeModal === "login";
   const registerModalOpen = activeModal === "register";
 
@@ -70,6 +78,23 @@ function App() {
     setNews([savedNews], ...news);
   }, []);
 
+  useEffect(() => {
+    const jwt = getToken();
+
+    if (!jwt) {
+      return;
+    }
+
+    checkToken(jwt)
+      .then((data) => {
+        setCurrentUser(data);
+        setIsLoggedIn(true);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
+
   const handleSearchSubmit = (userInput) => {
     setIsLoading(true);
     setSearchTag(userInput);
@@ -86,53 +111,104 @@ function App() {
       })
       .finally(() => setIsLoading(false));
   };
-  console.log(serverError);
+
+  function handleSaveNewsSubmit(data) {
+    const jwt = getToken();
+    addItem(data, jwt)
+      .then((item) => {
+        console.log(item);
+        handleModalClose();
+      })
+      .catch(console.error);
+  }
+
+  const handleSignUp = ({ email, name, password }) => {
+    signUp({ email, name, password })
+      .then(() => {
+        handleLogin({ email, password });
+      })
+      .then(handleModalClose)
+      .catch((err) => console.error(err));
+  };
+
+  const handleLogin = ({ email, password }) => {
+    if (!email || !password) {
+      return;
+    }
+    signIn({ email, password })
+      .then((res) => {
+        if (res.token) {
+          setToken(res.token);
+          checkToken(res.token).then((res) => {
+            setIsLoggedIn(true);
+            setCurrentUser(res);
+            console.log(res);
+            const redirectPath = location.state?.from?.pathname || "/";
+            navigate(redirectPath);
+            handleModalClose();
+          });
+        }
+      })
+      .catch((err) => console.error(err.message));
+  };
+  console.log(currentUser);
 
   return (
     <>
-      <IsOpenContext.Provider
-        value={{
-          mobileIsOpen,
-          toggleMobileModal,
-          clickHandlers: { handleLoginClick, handleRegisterClick },
-          isOpen: { loginModalOpen, registerModalOpen },
-        }}
-      >
-        <div className="page">
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <Main handleSearchSubmit={handleSearchSubmit} />
-                  {isLoading ? (
-                    <Preloader />
-                  ) : searchPerformed ? (
-                    news.length !== 0 ? (
-                      <NewsCardSection
-                        news={news}
-                        searchTag={searchTag}
-                        serverError={serverError}
-                      />
+      <CurrentUserContext.Provider value={currentUser}>
+        <IsOpenContext.Provider
+          value={{
+            mobileIsOpen,
+            isLoggedIn,
+            toggleMobileModal,
+            clickHandlers: { handleLoginClick, handleRegisterClick },
+            isOpen: { loginModalOpen, registerModalOpen },
+          }}
+        >
+          <div className="page">
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Main handleSearchSubmit={handleSearchSubmit} />
+                    {isLoading ? (
+                      <Preloader />
+                    ) : searchPerformed ? (
+                      news.length !== 0 ? (
+                        <NewsCardSection
+                          news={news}
+                          searchTag={searchTag}
+                          serverError={serverError}
+                          isProfilePage={isProfilePage}
+                        />
+                      ) : (
+                        <NothingFound />
+                      )
                     ) : (
-                      <NothingFound />
-                    )
-                  ) : (
-                    <></>
-                  )}
-                  <About />
-                </>
-              }
+                      <></>
+                    )}
+                    <About />
+                  </>
+                }
+              />
+              <Route path="/saved-news" element={<Profile />} />
+            </Routes>
+            <MobileModal onCloseModal={handleModalClose} />
+            <SignUpModal
+              onCloseModal={handleModalClose}
+              handleSignUp={handleSignUp}
+              isLoggedIn={isLoggedIn}
             />
-            <Route path="/saved-news" element={<Profile />} />
-          </Routes>
-          <MobileModal onCloseModal={handleModalClose} />
-          <SignUpModal onCloseModal={handleModalClose} />
-          <RegSuccessModal onCloseModal={handleModalClose} />
-          <SignInModal onCloseModal={handleModalClose} />
-          <Footer />
-        </div>
-      </IsOpenContext.Provider>
+            <RegSuccessModal onCloseModal={handleModalClose} />
+            <SignInModal
+              onCloseModal={handleModalClose}
+              handleLogin={handleLogin}
+            />
+            <Footer />
+          </div>
+        </IsOpenContext.Provider>
+      </CurrentUserContext.Provider>
     </>
   );
 }

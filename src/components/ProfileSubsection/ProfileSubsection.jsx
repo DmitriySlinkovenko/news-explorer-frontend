@@ -1,15 +1,17 @@
+import { useContext } from "react";
 import "./ProfileSubsection.css";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 export default function ProfileSubsection({
-  currentUser = "Dmitriy",
   savedArticles = 5,
   searchWords = ["Nature", "YellowStone", "Heroes"],
 }) {
+  const currentUser = useContext(CurrentUserContext);
   return (
     <div className="saved-page">
       <p className="saved-page__subheading">Saved Articles</p>
       <h2 className="saved-page__title">
-        {currentUser}, you have {savedArticles} saved articles
+        {currentUser.name}, you have {savedArticles} saved articles
       </h2>
       <p className="saved-page__subtitle">
         By keywords:{" "}

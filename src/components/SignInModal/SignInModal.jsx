@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { IsOpenContext } from "../../contexts/IsOpenContext";
 
-export default function SignInModal({ onCloseModal }) {
+export default function SignInModal({ onCloseModal, handleLogin }) {
   const { isOpen, clickHandlers } = useContext(IsOpenContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,6 +19,8 @@ export default function SignInModal({ onCloseModal }) {
 
   function handleSubmitForm(e) {
     e.preventDefault();
+    handleLogin({ email, password });
+    console.log("Logged In");
     setEmail("");
     setPassword("");
   }
@@ -26,7 +28,7 @@ export default function SignInModal({ onCloseModal }) {
   function SubmitButton() {
     if (password && email) {
       return (
-        <button type="button" className="modal__submit-btn">
+        <button type="submit" className="modal__submit-btn">
           Sign In
         </button>
       );
