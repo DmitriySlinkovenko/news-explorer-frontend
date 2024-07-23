@@ -167,7 +167,6 @@ function App() {
 
   const profilePage = () => {
     setIsProfilePage(!isProfilePage);
-    console.log(isProfilePage);
   };
 
   return (

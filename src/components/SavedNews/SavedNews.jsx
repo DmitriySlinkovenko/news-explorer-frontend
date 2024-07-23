@@ -6,7 +6,6 @@ import { IsOpenContext } from "../../contexts/IsOpenContext";
 export default function SavedNews({ searchTag, isProfilePage }) {
   const { savedItems } = useContext(IsOpenContext);
   const [visibleCount, setVisibleCount] = useState(3);
-  console.log(isProfilePage);
   const renderCards = () => {
     return savedItems
       .slice(0, visibleCount)
