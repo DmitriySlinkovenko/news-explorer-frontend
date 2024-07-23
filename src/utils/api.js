@@ -4,8 +4,14 @@ const checkResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
 
-function getItems() {
-  return fetch(`${baseUrl}/items`).then((res) => checkResponse(res));
+function getItems(token) {
+  return fetch(`${baseUrl}/items`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((res) => checkResponse(res));
 }
 
 function addItem({ name, description, urlToImage, title, publishedAt }, token) {

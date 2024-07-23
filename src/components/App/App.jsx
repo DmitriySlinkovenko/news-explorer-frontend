@@ -16,7 +16,7 @@ import { IsOpenContext } from "../../contexts/IsOpenContext.js";
 import { getNews } from "../../utils/newsAPI.js";
 import { signIn, signUp, checkToken } from "../../utils/auth.js";
 import { addItem, removeItem, getItems } from "../../utils/api.js";
-import { getToken, setToken } from "../../utils/token.js";
+import { getToken, setToken, removeToken } from "../../utils/token.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
 function App() {
@@ -30,6 +30,8 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState("");
   const [isProfilePage, setIsProfilePage] = useState(false);
+  const [savedItems, setSavedItems] = useState([]);
+
   const navigate = useNavigate();
   const loginModalOpen = activeModal === "login";
   const registerModalOpen = activeModal === "register";
@@ -72,12 +74,11 @@ function App() {
     });
   }, []); */
 
-  useEffect(() => {
-    setServerError(false);
-    const savedNews = localStorage.getItem("News");
-    setNews([savedNews], ...news);
-    console.log([savedNews]);
-  }, []);
+  // useEffect(() => {
+  //   setServerError(false);
+  //   const savedNews = localStorage.getItem("News");
+  //   setNews([savedNews], ...news);
+  // }, []);
 
   useEffect(() => {
     const jwt = getToken();
@@ -94,6 +95,11 @@ function App() {
       .catch((err) => {
         console.error(err);
       });
+    getItems(jwt)
+      .then((res) => {
+        setSavedItems(...savedItems, res);
+      })
+      .catch((err) => console.error(err));
   }, []);
 
   const handleSearchSubmit = (userInput) => {
@@ -113,11 +119,11 @@ function App() {
       .finally(() => setIsLoading(false));
   };
   function handleSaveNewsSubmit(data) {
-    console.log(data);
     const jwt = getToken();
     addItem(data, jwt)
-      .then((item) => {
-        console.log(item);
+      .then((res) => {
+        setSavedItems([...savedItems, res]);
+        console.log(savedItems);
       })
       .catch(console.error);
   }
@@ -146,9 +152,22 @@ function App() {
             navigate(redirectPath);
             handleModalClose();
           });
+          getItems(res.token);
         }
       })
       .catch((err) => console.error(err.message));
+  };
+
+  const handleLogOut = () => {
+    setIsLoggedIn(false);
+    setCurrentUser("");
+    removeToken();
+    navigate("/");
+  };
+
+  const profilePage = () => {
+    setIsProfilePage(!isProfilePage);
+    console.log(isProfilePage);
   };
 
   return (
@@ -161,6 +180,8 @@ function App() {
             toggleMobileModal,
             clickHandlers: { handleLoginClick, handleRegisterClick },
             isOpen: { loginModalOpen, registerModalOpen },
+            handleLogOut,
+            savedItems,
           }}
         >
           <div className="page">
@@ -169,7 +190,10 @@ function App() {
                 path="/"
                 element={
                   <>
-                    <Main handleSearchSubmit={handleSearchSubmit} />
+                    <Main
+                      handleSearchSubmit={handleSearchSubmit}
+                      profilePage={profilePage}
+                    />
                     {isLoading ? (
                       <Preloader />
                     ) : searchPerformed ? (
@@ -191,7 +215,22 @@ function App() {
                   </>
                 }
               />
-              <Route path="/saved-news" element={<Profile />} />
+              <Route
+                path={"/saved-news"}
+                element={
+                  <>
+                    {isLoggedIn ? (
+                      <Profile
+                        profilePage={profilePage}
+                        searchTag={searchTag}
+                        isProfilePage={isProfilePage}
+                      />
+                    ) : (
+                      navigate("/")
+                    )}
+                  </>
+                }
+              />
             </Routes>
             <MobileModal onCloseModal={handleModalClose} />
             <SignUpModal

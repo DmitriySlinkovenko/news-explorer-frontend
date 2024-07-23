@@ -1,11 +1,11 @@
 import "./Header.css";
 import Nav from "../Nav/Nav";
 
-export default function Header() {
+export default function Header({ profilePage }) {
   return (
     <>
       <header className="header">
-        <Nav />
+        <Nav profilePage={profilePage} />
       </header>
     </>
   );

@@ -5,8 +5,8 @@ import { IsOpenContext } from "../../contexts/IsOpenContext";
 import { NavLink } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-export default function Nav() {
-  const { clickHandlers, toggleMobileModal, isLoggedIn } =
+export default function Nav({ profilePage }) {
+  const { clickHandlers, toggleMobileModal, isLoggedIn, handleLogOut } =
     useContext(IsOpenContext);
   const currentUser = useContext(CurrentUserContext);
   const { handleLoginClick } = clickHandlers;
@@ -41,10 +41,18 @@ export default function Nav() {
         <NavLink to="/" className={customClassName}>
           Home
         </NavLink>
-        <NavLink to="/saved-news" className={customClassName}>
+        <NavLink
+          to="/saved-news"
+          className={customClassName}
+          onClick={profilePage}
+        >
           Saved Articles
         </NavLink>
-        <button className="nav__logout-btn" type="button">
+        <button
+          className="nav__logout-btn"
+          type="button"
+          onClick={handleLogOut}
+        >
           {currentUser.name}
           <img
             src={logout}

@@ -2,12 +2,12 @@ import ProfileNav from "../ProfileNav/ProfileNav";
 import ProfileSubsection from "../ProfileSubsection/ProfileSubsection";
 import SavedNews from "../SavedNews/SavedNews";
 
-export default function Profile() {
+export default function Profile({ searchTag, isProfilePage, profilePage }) {
   return (
     <>
-      <ProfileNav />
+      <ProfileNav profilePage={profilePage} />
       <ProfileSubsection />
-      <SavedNews />
+      <SavedNews searchTag={searchTag} isProfilePage={isProfilePage} />
     </>
   );
 }

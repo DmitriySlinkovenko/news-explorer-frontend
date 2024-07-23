@@ -1,24 +1,19 @@
 import { useContext } from "react";
 import "./ProfileSubsection.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { IsOpenContext } from "../../contexts/IsOpenContext";
 
-export default function ProfileSubsection({
-  savedArticles = 5,
-  searchWords = ["Nature", "YellowStone", "Heroes"],
-}) {
+export default function ProfileSubsection() {
   const currentUser = useContext(CurrentUserContext);
+  const { savedItems } = useContext(IsOpenContext);
   return (
     <div className="saved-page">
       <p className="saved-page__subheading">Saved Articles</p>
       <h2 className="saved-page__title">
-        {currentUser.name}, you have {savedArticles} saved articles
+        {currentUser.name}, you have {savedItems.length} saved articles
       </h2>
       <p className="saved-page__subtitle">
-        By keywords:{" "}
-        <span className="save-page__subtitle-span">
-          {searchWords[0]}, {searchWords[1]}
-          {searchWords.length > 2 && ` and ${searchWords.length - 2} more`}
-        </span>
+        By keywords: <span className="save-page__subtitle-span"></span>
       </p>
     </div>
   );

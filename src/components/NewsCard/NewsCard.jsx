@@ -15,14 +15,19 @@ export default function NewsCard({
     return date.toLocaleDateString("en-US", options);
   };
   const { isLoggedIn } = useContext(IsOpenContext);
-  const name = item.source.name;
   const title = item.title;
   const description = item.description;
   const urlToImage = item.urlToImage;
   const publishedAt = iso8601ToFormattedDate(item.publishedAt);
 
   const handleBookmark = () => {
-    handleSaveNewsSubmit({ name, title, description, urlToImage, publishedAt });
+    handleSaveNewsSubmit({
+      name: item.source.name,
+      title,
+      description,
+      urlToImage,
+      publishedAt,
+    });
   };
 
   return !isProfilePage ? (
@@ -69,7 +74,7 @@ export default function NewsCard({
         <p className="card__date">{iso8601ToFormattedDate(item.publishedAt)}</p>
         <h3 className="card__heading">{item.title}</h3>
         <p className="card__text">{item.description}</p>
-        <p className="card__footer">{item.source.name}</p>
+        <p className="card__footer">{item.name}</p>
       </div>
     </div>
   );
