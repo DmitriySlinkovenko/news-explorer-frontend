@@ -6,6 +6,13 @@ import { IsOpenContext } from "../../contexts/IsOpenContext";
 export default function ProfileSubsection() {
   const currentUser = useContext(CurrentUserContext);
   const { savedItems } = useContext(IsOpenContext);
+  const keywords = [];
+  const savedSearchTag = savedItems.forEach((i) => {
+    if (!keywords.includes(i.searchTag)) {
+      keywords.push(i.searchTag);
+    }
+  });
+  console.log(keywords);
   return (
     <div className="saved-page">
       <p className="saved-page__subheading">Saved Articles</p>
@@ -13,7 +20,20 @@ export default function ProfileSubsection() {
         {currentUser.name}, you have {savedItems.length} saved articles
       </h2>
       <p className="saved-page__subtitle">
-        By keywords: <span className="save-page__subtitle-span"></span>
+        By keywords:{" "}
+        <span className="save-page__subtitle-span">
+          {keywords.length == 0
+            ? ""
+            : keywords.length == 1
+            ? `${keywords[0]}.`
+            : keywords.length >= 2
+            ? `${keywords[0]}, ${keywords[1]}${
+                keywords.length - 2 == 0
+                  ? ""
+                  : `, and ${keywords.length - 2} more.`
+              }`
+            : ""}
+        </span>
       </p>
     </div>
   );

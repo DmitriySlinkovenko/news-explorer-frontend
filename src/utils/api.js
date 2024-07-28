@@ -14,7 +14,10 @@ function getItems(token) {
   }).then((res) => checkResponse(res));
 }
 
-function addItem({ name, description, urlToImage, title, publishedAt }, token) {
+function addItem(
+  { name, description, urlToImage, title, publishedAt, searchTag },
+  token
+) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
@@ -27,6 +30,7 @@ function addItem({ name, description, urlToImage, title, publishedAt }, token) {
       urlToImage,
       title,
       publishedAt,
+      searchTag,
     }),
   }).then(checkResponse);
 }

@@ -10,12 +10,7 @@ export default function SavedNews({ searchTag, isProfilePage }) {
     return savedItems
       .slice(0, visibleCount)
       .map((item, index) => (
-        <NewsCard
-          key={index}
-          item={item}
-          searchTag={searchTag}
-          isProfilePage={isProfilePage}
-        />
+        <NewsCard key={index} item={item} isProfilePage={isProfilePage} />
       ));
   };
   const handleShowMore = () => {

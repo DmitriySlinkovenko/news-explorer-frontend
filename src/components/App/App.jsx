@@ -97,7 +97,11 @@ function App() {
       });
     getItems(jwt)
       .then((res) => {
-        setSavedItems(...savedItems, res);
+        setSavedItems(res, ...savedItems);
+        res.forEach((i) => {
+          setSearchTag(i.searchTag);
+          console.log(searchTag);
+        });
       })
       .catch((err) => console.error(err));
   }, []);
@@ -123,7 +127,6 @@ function App() {
     addItem(data, jwt)
       .then((res) => {
         setSavedItems([...savedItems, res]);
-        console.log(savedItems);
       })
       .catch(console.error);
   }
@@ -167,6 +170,7 @@ function App() {
 
   const profilePage = () => {
     setIsProfilePage(!isProfilePage);
+    console.log(isProfilePage);
   };
 
   return (
@@ -218,15 +222,11 @@ function App() {
                 path={"/saved-news"}
                 element={
                   <>
-                    {isLoggedIn ? (
-                      <Profile
-                        profilePage={profilePage}
-                        searchTag={searchTag}
-                        isProfilePage={isProfilePage}
-                      />
-                    ) : (
-                      navigate("/")
-                    )}
+                    <Profile
+                      profilePage={profilePage}
+                      searchTag={searchTag}
+                      isProfilePage={isProfilePage}
+                    />
                   </>
                 }
               />

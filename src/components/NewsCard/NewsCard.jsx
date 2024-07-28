@@ -19,6 +19,7 @@ export default function NewsCard({
   const description = item.description;
   const urlToImage = item.urlToImage;
   const publishedAt = iso8601ToFormattedDate(item.publishedAt);
+  const cardSearchTag = item.searchTag;
 
   const handleBookmark = () => {
     handleSaveNewsSubmit({
@@ -27,7 +28,9 @@ export default function NewsCard({
       description,
       urlToImage,
       publishedAt,
+      searchTag,
     });
+    console.log(searchTag);
   };
 
   return !isProfilePage ? (
@@ -58,7 +61,7 @@ export default function NewsCard({
 
         <h3 className="card__heading">{item.title}</h3>
         <p className="card__text">{item.description}</p>
-        <p className="card__footer">{item.source.name}</p>
+        <p className="card__footer">{item.name}</p>
       </div>
     </div>
   ) : (
@@ -70,7 +73,7 @@ export default function NewsCard({
       />
       <div className="card__info">
         <button className="card__delete-btn" type="button"></button>
-        <p className="card__search-tag">{searchTag}</p>
+        <p className="card__search-tag">{cardSearchTag}</p>
         <p className="card__date">{iso8601ToFormattedDate(item.publishedAt)}</p>
         <h3 className="card__heading">{item.title}</h3>
         <p className="card__text">{item.description}</p>
