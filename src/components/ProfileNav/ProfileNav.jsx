@@ -4,7 +4,7 @@ import logout from "../../assets/logout-black.svg";
 import { NavLink } from "react-router-dom";
 import { IsOpenContext } from "../../contexts/IsOpenContext";
 
-export default function ProfileHeader({ currentUser, profilePage }) {
+export default function ProfileHeader({ currentUser }) {
   const { toggleMobileModal, handleLogOut } = useContext(IsOpenContext);
   const customClassName = ({ isActive }) =>
     "profile-nav__home-btn" + (isActive ? " profile-nav__home-btn_active" : "");
@@ -12,7 +12,7 @@ export default function ProfileHeader({ currentUser, profilePage }) {
     <nav className="profile-nav">
       <div className="profile-nav__container">
         <p className="profile-nav__logo">NewsExplorer</p>
-        <NavLink to="/" className={customClassName} onClick={profilePage}>
+        <NavLink to="/" className={customClassName}>
           Home
         </NavLink>
         <NavLink to="/saved-news" className={customClassName}>

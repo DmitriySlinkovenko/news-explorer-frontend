@@ -5,7 +5,7 @@ import SavedNews from "../SavedNews/SavedNews";
 export default function Profile({ searchTag, isProfilePage, profilePage }) {
   return (
     <>
-      <ProfileNav profilePage={profilePage} />
+      <ProfileNav />
       <ProfileSubsection />
       <SavedNews searchTag={searchTag} isProfilePage={isProfilePage} />
     </>

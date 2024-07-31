@@ -6,7 +6,6 @@ export default function NewsSection({
   news,
   searchTag,
   serverError,
-  isProfilePage,
   handleSaveNewsSubmit,
 }) {
   const [visibleCount, setVisibleCount] = useState(3);
@@ -18,7 +17,6 @@ export default function NewsSection({
           key={index}
           item={item}
           searchTag={searchTag}
-          isProfilePage={isProfilePage}
           handleSaveNewsSubmit={handleSaveNewsSubmit}
         />
       ));

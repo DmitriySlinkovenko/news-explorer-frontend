@@ -1,17 +1,17 @@
 import "./SavedNews.css";
 import { useState, useContext } from "react";
-import NewsCard from "../NewsCard/NewsCard";
 import { IsOpenContext } from "../../contexts/IsOpenContext";
+import SavedCard from "../SavedCard/SavedCard";
 
-export default function SavedNews({ searchTag, isProfilePage }) {
+export default function SavedNews({ searchTag }) {
   const { savedItems } = useContext(IsOpenContext);
+  console.log(savedItems);
   const [visibleCount, setVisibleCount] = useState(3);
+  console.log(savedItems);
   const renderCards = () => {
     return savedItems
       .slice(0, visibleCount)
-      .map((item, index) => (
-        <NewsCard key={index} item={item} isProfilePage={isProfilePage} />
-      ));
+      .map((item, index) => <SavedCard key={index} item={item} />);
   };
   const handleShowMore = () => {
     setVisibleCount((prevCount) => prevCount + 3);

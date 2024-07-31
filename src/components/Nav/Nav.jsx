@@ -5,7 +5,7 @@ import { IsOpenContext } from "../../contexts/IsOpenContext";
 import { NavLink } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-export default function Nav({ profilePage }) {
+export default function Nav() {
   const { clickHandlers, toggleMobileModal, isLoggedIn, handleLogOut } =
     useContext(IsOpenContext);
   const currentUser = useContext(CurrentUserContext);
@@ -41,11 +41,7 @@ export default function Nav({ profilePage }) {
         <NavLink to="/" className={customClassName}>
           Home
         </NavLink>
-        <NavLink
-          to="/saved-news"
-          className={customClassName}
-          onClick={profilePage}
-        >
+        <NavLink to="/saved-news" className={customClassName}>
           Saved Articles
         </NavLink>
         <button

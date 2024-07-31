@@ -6,7 +6,7 @@ export default function Main({ handleSearchSubmit, profilePage }) {
   return (
     <>
       <div className="main">
-        <Header profilePage={profilePage} />
+        <Header />
         <SearchForm handleSearchSubmit={handleSearchSubmit} />
       </div>
     </>

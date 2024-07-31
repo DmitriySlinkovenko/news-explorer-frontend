@@ -5,7 +5,7 @@ export default function Header({ profilePage }) {
   return (
     <>
       <header className="header">
-        <Nav profilePage={profilePage} />
+        <Nav />
       </header>
     </>
   );

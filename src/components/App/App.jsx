@@ -29,7 +29,6 @@ function App() {
   const [serverError, setServerError] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState("");
-  const [isProfilePage, setIsProfilePage] = useState(false);
   const [savedItems, setSavedItems] = useState([]);
 
   const navigate = useNavigate();
@@ -97,7 +96,8 @@ function App() {
       });
     getItems(jwt)
       .then((res) => {
-        setSavedItems(res, ...savedItems);
+        console.log(res);
+        setSavedItems(res);
         res.forEach((i) => {
           setSearchTag(i.searchTag);
         });
@@ -105,6 +105,7 @@ function App() {
       .catch((err) => console.error(err));
   }, []);
 
+  console.log(savedItems);
   const handleSearchSubmit = (userInput) => {
     setIsLoading(true);
     setSearchTag(userInput);
@@ -126,7 +127,9 @@ function App() {
     addItem(data, jwt)
       .then((res) => {
         setSavedItems([res, ...savedItems]);
+        console.log(res);
       })
+
       .catch(console.error);
   }
 
@@ -167,11 +170,6 @@ function App() {
     navigate("/");
   };
 
-  const profilePage = () => {
-    setIsProfilePage(!isProfilePage);
-    console.log(isProfilePage);
-  };
-
   return (
     <>
       <CurrentUserContext.Provider value={currentUser}>
@@ -192,10 +190,7 @@ function App() {
                 path="/"
                 element={
                   <>
-                    <Main
-                      handleSearchSubmit={handleSearchSubmit}
-                      profilePage={profilePage}
-                    />
+                    <Main handleSearchSubmit={handleSearchSubmit} />
                     {isLoading ? (
                       <Preloader />
                     ) : searchPerformed ? (
@@ -204,7 +199,6 @@ function App() {
                           news={news}
                           searchTag={searchTag}
                           serverError={serverError}
-                          isProfilePage={isProfilePage}
                           handleSaveNewsSubmit={handleSaveNewsSubmit}
                         />
                       ) : (
@@ -221,11 +215,7 @@ function App() {
                 path={"/saved-news"}
                 element={
                   <>
-                    <Profile
-                      profilePage={profilePage}
-                      searchTag={searchTag}
-                      isProfilePage={isProfilePage}
-                    />
+                    <Profile searchTag={searchTag} />
                   </>
                 }
               />
