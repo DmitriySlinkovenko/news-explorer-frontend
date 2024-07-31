@@ -100,7 +100,6 @@ function App() {
         setSavedItems(res, ...savedItems);
         res.forEach((i) => {
           setSearchTag(i.searchTag);
-          console.log(searchTag);
         });
       })
       .catch((err) => console.error(err));
@@ -126,7 +125,7 @@ function App() {
     const jwt = getToken();
     addItem(data, jwt)
       .then((res) => {
-        setSavedItems([...savedItems, res]);
+        setSavedItems([res, ...savedItems]);
       })
       .catch(console.error);
   }

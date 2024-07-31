@@ -14,7 +14,7 @@ export default function NewsCard({
     const options = { day: "numeric", month: "long", year: "numeric" };
     return date.toLocaleDateString("en-US", options);
   };
-  const { isLoggedIn } = useContext(IsOpenContext);
+  const { isLoggedIn, savedItems } = useContext(IsOpenContext);
   const title = item.title;
   const description = item.description;
   const urlToImage = item.urlToImage;

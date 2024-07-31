@@ -7,12 +7,11 @@ export default function ProfileSubsection() {
   const currentUser = useContext(CurrentUserContext);
   const { savedItems } = useContext(IsOpenContext);
   const keywords = [];
-  const savedSearchTag = savedItems.forEach((i) => {
+  savedItems.forEach((i) => {
     if (!keywords.includes(i.searchTag)) {
       keywords.push(i.searchTag);
     }
   });
-  console.log(keywords);
   return (
     <div className="saved-page">
       <p className="saved-page__subheading">Saved Articles</p>
