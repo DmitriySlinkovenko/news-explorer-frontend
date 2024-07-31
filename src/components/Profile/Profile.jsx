@@ -6,8 +6,8 @@ export default function Profile({ searchTag, isProfilePage, profilePage }) {
   return (
     <>
       <ProfileNav />
-      <ProfileSubsection />
-      <SavedNews searchTag={searchTag} isProfilePage={isProfilePage} />
+      <ProfileSubsection searchTag={searchTag} />
+      <SavedNews searchTag={searchTag} />
     </>
   );
 }

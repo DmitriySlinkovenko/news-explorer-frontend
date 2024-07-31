@@ -96,7 +96,6 @@ function App() {
       });
     getItems(jwt)
       .then((res) => {
-        console.log(res);
         setSavedItems(res);
         res.forEach((i) => {
           setSearchTag(i.searchTag);
@@ -105,7 +104,6 @@ function App() {
       .catch((err) => console.error(err));
   }, []);
 
-  console.log(savedItems);
   const handleSearchSubmit = (userInput) => {
     setIsLoading(true);
     setSearchTag(userInput);
@@ -127,9 +125,7 @@ function App() {
     addItem(data, jwt)
       .then((res) => {
         setSavedItems([res, ...savedItems]);
-        console.log(res);
       })
-
       .catch(console.error);
   }
 

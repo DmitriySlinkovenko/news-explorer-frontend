@@ -3,11 +3,10 @@ import { useState, useContext } from "react";
 import { IsOpenContext } from "../../contexts/IsOpenContext";
 import SavedCard from "../SavedCard/SavedCard";
 
-export default function SavedNews({ searchTag }) {
+export default function SavedNews() {
   const { savedItems } = useContext(IsOpenContext);
-  console.log(savedItems);
   const [visibleCount, setVisibleCount] = useState(3);
-  console.log(savedItems);
+
   const renderCards = () => {
     return savedItems
       .slice(0, visibleCount)
@@ -18,7 +17,16 @@ export default function SavedNews({ searchTag }) {
   };
   return (
     <div className="saved-news">
-      <div className="saved-news__containter">{renderCards()}</div>
+      <div className="saved-news__container">{renderCards()}</div>
+      {visibleCount < savedItems.length && (
+        <button
+          type="button"
+          className="card-section__show-more-btn"
+          onClick={handleShowMore}
+        >
+          Show More
+        </button>
+      )}
     </div>
   );
 }

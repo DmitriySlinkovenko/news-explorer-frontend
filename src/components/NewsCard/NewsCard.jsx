@@ -9,7 +9,7 @@ export default function NewsCard({ item, searchTag, handleSaveNewsSubmit }) {
     const options = { day: "numeric", month: "long", year: "numeric" };
     return date.toLocaleDateString("en-US", options);
   };
-  const { isLoggedIn, savedItems } = useContext(IsOpenContext);
+  const { isLoggedIn } = useContext(IsOpenContext);
 
   const handleBookmark = () => {
     handleSaveNewsSubmit({
@@ -20,7 +20,6 @@ export default function NewsCard({ item, searchTag, handleSaveNewsSubmit }) {
       publishedAt: item.publishedAt,
       searchTag,
     });
-    console.log(savedItems);
   };
 
   return (
