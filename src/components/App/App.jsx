@@ -129,7 +129,6 @@ function App() {
       })
       .catch(console.error);
   }
-  console.log(savedItems);
 
   const handleSignUp = ({ email, name, password }) => {
     signUp({ email, name, password })
@@ -166,6 +165,15 @@ function App() {
     setCurrentUser("");
     removeToken();
     navigate("/");
+  };
+
+  const handleDeleteItem = (id) => {
+    const token = getToken();
+    removeItem(id, token)
+      .then(() => {
+        setSavedItems(savedItems.filter((item) => item._id !== id));
+      })
+      .catch(console.error);
   };
 
   return (
@@ -213,7 +221,10 @@ function App() {
                 path={"/saved-news"}
                 element={
                   <>
-                    <Profile searchTag={searchTag} />
+                    <Profile
+                      searchTag={searchTag}
+                      handleDeleteItem={handleDeleteItem}
+                    />
                   </>
                 }
               />

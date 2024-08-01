@@ -86,9 +86,6 @@
   background-image: url(../../assets/bookmark-hover.svg);
 }
 
-/* .card__bookmark-btn {
-  background-image: url(../../assets/bookmark-saved.svg);
-} */
 .card__bookmark-btn:hover + .card__bookmark-validation {
   opacity: 1;
 }
