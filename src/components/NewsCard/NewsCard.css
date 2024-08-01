@@ -85,6 +85,10 @@
 .card__bookmark-btn:hover {
   background-image: url(../../assets/bookmark-hover.svg);
 }
+
+/* .card__bookmark-btn {
+  background-image: url(../../assets/bookmark-saved.svg);
+} */
 .card__bookmark-btn:hover + .card__bookmark-validation {
   opacity: 1;
 }
@@ -105,6 +109,7 @@
 }
 .card__bookmark-validation_hidden {
   visibility: hidden;
+  position: absolute;
 }
 .card__delete-btn {
   width: 40px;

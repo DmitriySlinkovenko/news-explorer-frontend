@@ -3,20 +3,15 @@ import "./ProfileSubsection.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { IsOpenContext } from "../../contexts/IsOpenContext";
 
-export default function ProfileSubsection({ searchTag }) {
+export default function ProfileSubsection() {
   const currentUser = useContext(CurrentUserContext);
   const { savedItems } = useContext(IsOpenContext);
-  console.log(savedItems);
   const keywords = [];
   savedItems.forEach((i) => {
     if (!keywords.includes(i.searchTag)) {
       keywords.push(i.searchTag);
     }
-    if (i.item && !keywords.includes(i.item.searchTag)) {
-      keywords.push(i.item.searchTag);
-    }
   });
-  console.log(keywords);
   return (
     <div className="saved-page">
       <p className="saved-page__subheading">Saved Articles</p>

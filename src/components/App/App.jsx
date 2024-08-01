@@ -124,10 +124,12 @@ function App() {
     const jwt = getToken();
     addItem(data, jwt)
       .then((res) => {
-        setSavedItems([res, ...savedItems]);
+        console.log(savedItems);
+        setSavedItems([res.item, ...savedItems]);
       })
       .catch(console.error);
   }
+  console.log(savedItems);
 
   const handleSignUp = ({ email, name, password }) => {
     signUp({ email, name, password })

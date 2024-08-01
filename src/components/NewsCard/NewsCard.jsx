@@ -21,6 +21,7 @@ export default function NewsCard({ item, searchTag, handleSaveNewsSubmit }) {
       searchTag,
     });
   };
+  console.log(item);
 
   return (
     <div className="card">
@@ -48,7 +49,7 @@ export default function NewsCard({ item, searchTag, handleSaveNewsSubmit }) {
         <p className="card__date">{iso8601ToFormattedDate(item.publishedAt)}</p>
         <h3 className="card__heading">{item.title}</h3>
         <p className="card__text">{item.description}</p>
-        <p className="card__footer">{item.name}</p>
+        <p className="card__footer">{item.source.name}</p>
       </div>
     </div>
   );
