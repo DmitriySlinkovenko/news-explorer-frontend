@@ -2,13 +2,23 @@ import { useState } from "react";
 import "./NewsCardSection.css";
 import NewsCard from "../NewsCard/NewsCard";
 
-export default function NewsSection({ news, searchTag, serverError }) {
+export default function NewsSection({
+  news,
+  searchTag,
+  serverError,
+  handleSaveNewsSubmit,
+}) {
   const [visibleCount, setVisibleCount] = useState(3);
   const renderCards = () => {
     return news
       .slice(0, visibleCount)
       .map((item, index) => (
-        <NewsCard key={index} item={item} searchTag={searchTag} />
+        <NewsCard
+          key={index}
+          item={item}
+          searchTag={searchTag}
+          handleSaveNewsSubmit={handleSaveNewsSubmit}
+        />
       ));
   };
   const handleShowMore = () => {

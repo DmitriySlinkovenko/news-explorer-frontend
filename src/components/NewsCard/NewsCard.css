@@ -9,9 +9,9 @@
   transition: linear 0.5s;
 }
 
-/*.card:hover {
+.card:hover {
   transform: translateY(-20px);
-}*/
+}
 
 .card__image {
   border-radius: 15px 15px 0 0;
@@ -85,6 +85,7 @@
 .card__bookmark-btn:hover {
   background-image: url(../../assets/bookmark-hover.svg);
 }
+
 .card__bookmark-btn:hover + .card__bookmark-validation {
   opacity: 1;
 }
@@ -102,6 +103,10 @@
   font-weight: 500;
   text-align: center;
   transition: opacity 0.5s linear;
+}
+.card__bookmark-validation_hidden {
+  visibility: hidden;
+  position: absolute;
 }
 .card__delete-btn {
   width: 40px;

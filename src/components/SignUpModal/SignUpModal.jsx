@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import { IsOpenContext } from "../../contexts/IsOpenContext.js";
 
-export default function SignUpModal({ onCloseModal }) {
+export default function SignUpModal({ onCloseModal, handleSignUp }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,6 +24,8 @@ export default function SignUpModal({ onCloseModal }) {
 
   function handleSubmitForm(e) {
     e.preventDefault();
+    console.log("Submitted");
+    handleSignUp({ name, email, password });
     setEmail("");
     setPassword("");
     setName("");
@@ -32,7 +34,7 @@ export default function SignUpModal({ onCloseModal }) {
   function SubmitButton() {
     if (password && email && name) {
       return (
-        <button type="button" className="modal__submit-btn">
+        <button type="submit" className="modal__submit-btn">
           Sign Up
         </button>
       );
