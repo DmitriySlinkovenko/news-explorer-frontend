@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import "./ProfileSubsection.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { IsOpenContext } from "../../contexts/IsOpenContext";

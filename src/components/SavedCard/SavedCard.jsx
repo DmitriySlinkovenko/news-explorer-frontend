@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function SavedCard({ item, handleDeleteItem }) {
   const iso8601ToFormattedDate = (isoDate) => {
     const date = new Date(isoDate);
