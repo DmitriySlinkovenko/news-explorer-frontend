@@ -1,4 +1,4 @@
-const baseUrl = "api.news-explorerds22.root.sx";
+const baseUrl = "https://api.news-explorerds22.root.sx";
 
 const checkResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
