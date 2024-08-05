@@ -105,7 +105,6 @@ function App() {
   }, []);
 
   const handleSearchSubmit = (userInput) => {
-    console.log(serverError);
     setIsLoading(true);
     setSearchTag(userInput);
     return getNews(userInput)
@@ -121,6 +120,7 @@ function App() {
       })
       .finally(() => setIsLoading(false));
   };
+  console.log(serverError);
   function handleSaveNewsSubmit(data) {
     const jwt = getToken();
     addItem(data, jwt)
