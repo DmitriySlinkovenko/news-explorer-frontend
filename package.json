@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "news-explorer.root.sx",
+  "homepage": "news-explorerds22.root.sx",
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
