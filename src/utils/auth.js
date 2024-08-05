@@ -1,5 +1,5 @@
 import { checkResponse } from "../utils/api.js";
-const baseUrl = "http://localhost:3002";
+const baseUrl = "api.news-explorer.root.sx";
 
 export function signUp({ name, email, password }) {
   return fetch(`${baseUrl}/signup`, {
