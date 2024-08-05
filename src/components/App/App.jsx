@@ -105,6 +105,7 @@ function App() {
   }, []);
 
   const handleSearchSubmit = (userInput) => {
+    console.log(serverError);
     setIsLoading(true);
     setSearchTag(userInput);
     return getNews(userInput)
