@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:3002";
+const baseUrl = "api.news-explorer.root.sx";
 
 const checkResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
