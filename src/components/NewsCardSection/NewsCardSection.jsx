@@ -24,7 +24,6 @@ export default function NewsSection({
   const handleShowMore = () => {
     setVisibleCount((prevCount) => prevCount + 3);
   };
-  console.log(serverError);
   return !serverError ? (
     <section className="card-section">
       <h2 className="card-section__heading">Search Results</h2>
