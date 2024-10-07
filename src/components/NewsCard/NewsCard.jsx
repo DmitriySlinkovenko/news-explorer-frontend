@@ -21,7 +21,6 @@ export default function NewsCard({ item, searchTag, handleSaveNewsSubmit }) {
       searchTag,
     });
   };
-  console.log(item);
 
   return (
     <div className="card">
