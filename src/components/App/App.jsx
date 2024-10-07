@@ -131,7 +131,6 @@ function App() {
     const jwt = getToken();
     addItem(data, jwt)
       .then((res) => {
-        console.log(savedItems);
         setSavedItems([res.item, ...savedItems]);
       })
       .catch(console.error);
