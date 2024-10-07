@@ -108,11 +108,17 @@ function App() {
     setIsLoading(true);
     setSearchTag(userInput);
     return getNews(userInput)
-      .then((res) => {
+      .then((data) => {
+        const filteredArticles = data.articles.filter(
+          (article) =>
+            article.urlToImage &&
+            article.title &&
+            !article.title.includes("[Removed]")
+        );
         setServerError(false);
-        setNews(res.articles, ...news);
+        setNews(filteredArticles, ...news);
         setSearchPerformed(true);
-        localStorage.setItem("News", res.articles);
+        localStorage.setItem("News", filteredArticles);
       })
       .catch((err) => {
         console.log(err);
@@ -120,7 +126,7 @@ function App() {
       })
       .finally(() => setIsLoading(false));
   };
-  console.log(serverError);
+
   function handleSaveNewsSubmit(data) {
     const jwt = getToken();
     addItem(data, jwt)
